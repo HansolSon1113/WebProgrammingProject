@@ -8,7 +8,8 @@
 /* Base styles */
 html {
     font-family: "Ownglyph_ParkDaHyun";
-    color: rgba(19, 52, 59, 1);;
+    color: rgba(19, 52, 59, 1);
+    ;
     background-color: rgba(252, 252, 249, 1);
     -webkit-font-smoothing: antialiased;
     box-sizing: border-box;
@@ -91,7 +92,7 @@ body {
     margin: 0 1% 30% 0;
 }
 
-#logo + img {
+#logo+img {
     width: 100%;
     height: auto;
 }
@@ -110,7 +111,7 @@ body {
 }
 
 #mascot-1 {
-    width: 12vw; 
+    width: 12vw;
     height: auto;
 }
 
@@ -120,7 +121,7 @@ body {
 }
 
 .spacer {
-    flex:1
+    flex: 1
 }
 
 #sample {
@@ -131,6 +132,12 @@ body {
 #sample-container img {
     width: 75%;
     height: auto;
+}
+
+#shop-btn {
+    background-color: rgb(227, 227, 229);
+    border: none;
+    padding: 0;
 }
 
 #hello img {
@@ -145,3 +152,7 @@ body {
 }
 
 .grid-card {}
+
+#friends {
+    background-color: white;
+}
