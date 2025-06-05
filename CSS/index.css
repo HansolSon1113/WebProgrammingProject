@@ -5,12 +5,15 @@
     font-style: normal;
 }
 
-/* Base styles */
+:root {
+    --background-color: rgba(252, 252, 249, 1);
+}
+
 html {
     font-family: "Ownglyph_ParkDaHyun";
     color: rgba(19, 52, 59, 1);
     ;
-    background-color: rgba(252, 252, 249, 1);
+    background-color: var(--background-color);
     -webkit-font-smoothing: antialiased;
     box-sizing: border-box;
 }
@@ -99,7 +102,7 @@ body {
 
 #intro-mascot {
     gap: 5%;
-    margin-bottom: 7%;
+    margin-bottom: 5%;
 }
 
 #intro-mascot img {
@@ -135,10 +138,14 @@ body {
     height: auto;
 }
 
-#shop-btn {
-    background-color: rgb(227, 227, 229);
+.btn {
+    background-color: var(--background-color);
     border: none;
     padding: 0;
+}
+
+#shop-btn {
+    background-color: rgb(227, 227, 229);
 }
 
 #hello img {
