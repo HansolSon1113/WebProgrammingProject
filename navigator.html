@@ -18,7 +18,7 @@
             flex-direction: row;
             align-items: center;
             justify-content: center;
-            gap: 5%;
+            
         }
 
         .nav-row li {
@@ -32,16 +32,11 @@
             text-decoration: none;
             color: black;
         }
-
-        .current {
-            color: blue;
-        }
     </style>
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            console.log(document.getElementById("main"));
-            document.getElementById(parent.currentPage).className = "current";
+            document.getElementById(parent.currentPage).style = "color: blue;";
         });
     </script>
 </head>
