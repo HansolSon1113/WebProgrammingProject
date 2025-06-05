@@ -1,0 +1,147 @@
+@font-face {
+    font-family: 'Ownglyph_ParkDaHyun';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2411-3@1.0/Ownglyph_ParkDaHyun.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Base styles */
+html {
+    font-family: "Ownglyph_ParkDaHyun";
+    color: rgba(19, 52, 59, 1);;
+    background-color: rgba(252, 252, 249, 1);
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+}
+
+body {
+    text-align: center;
+    word-break: keep-all;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 25em 0 25em 0;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-title {
+    font-size: 3rem;
+}
+
+.section-description,
+#vision-content {
+    font-size: 2rem;
+}
+
+.text {
+    font-size: 1.5rem;
+}
+
+.grid-card p {
+    font-size: 1.5rem;
+}
+
+.photo {
+    border: 0 none;
+    margin: 0 auto;
+    max-width: 75%;
+    height: auto;
+    display: block;
+}
+
+#intro-container {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    padding: 0;
+}
+
+#intro-photo {
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(200, 200, 200, 0.8)), url("../Assets/intro.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#logo {
+    width: 20%;
+    height: 20%;
+    margin: 0 1% 30% 0;
+}
+
+#logo + img {
+    width: 100%;
+    height: auto;
+}
+
+#intro-mascot {
+    gap: 5%;
+}
+
+#intro-mascot img {
+    margin-top: 5%;
+}
+
+#intro-mascot .flex-column {
+    width: 40vw;
+    height: 80vh;
+}
+
+#mascot-1 {
+    width: 12vw; 
+    height: auto;
+}
+
+#mascot-2 {
+    width: 12.5vw;
+    height: auto;
+}
+
+.spacer {
+    flex:1
+}
+
+#sample {
+    background-color: rgb(227, 227, 229);
+}
+
+#sample-container,
+#sample-container img {
+    width: 75%;
+    height: auto;
+}
+
+#hello img {
+    width: 50%;
+    height: auto;
+}
+
+.grid {
+    display: grid;
+    gap: var(--space-24);
+    margin-bottom: var(--space-32);
+}
+
+.grid-card {}

@@ -1,14 +1,167 @@
 <!DOCTYPE html>
 <html lang="ko">
-    <head>
-        <meta charset="utf-8">
-        <meta name="keyword" content="한성, 상상부기, Hansung">
-        <meta name="description" content="한성대학교 기념품">
-        <meta name="author" content="2491023-손한솔, 2491048-정연우 WebProgramming 기말 프로젝트">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>한성대학교 기념품</title>
-    </head>
-    <body>
-        <h1>HELLO WORLD!</h1>
-    </body>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keyword" content="한성, 상상부기, Hansung">
+    <meta name="description" content="한성대학교 기념품">
+    <meta name="author" content="2491023-손한솔, 2491048-정연우 WebProgramming 기말 프로젝트">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+    <link rel="stylesheet" href="CSS/index.css">
+    <title>한성대학교 기념품</title>
+</head>
+
+<body>
+    <section id="intro">
+        <section id="intro-container" class="container">
+            <div id="intro-photo" class="flex-column">
+                <div id="intro-mascot" class="flex-row">
+                    <div class="flex-column">
+                        <div class="spacer"></div>
+                        <img src="Assets/mascot_1.png" alt="상상부기 1" id="mascot-1">
+                    </div>
+                    <div class="flex-row">
+                        <img src="Assets/logo.png" alt="한성대학교 로고" id="logo">
+                        <img src="Assets/intro_text.png" alt="한성대학교 기념품샵">
+                    </div>
+                    <div class="flex-column">
+                        <div class="spacer"></div>
+                        <img src="Assets/mascot_2.png" alt="상상부기 2" id="mascot-2">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="sample" class="container">
+            <div id="sample-container">
+                <div class="photo-container reveal-up">
+                    <img src="Assets/sample.png" alt="예시 상품" class="photo">
+                </div>
+                <div class="flex-row">
+                    <img src="Assets/mascot_3.png" alt="상상부기 3" style="max-width: 20%">
+                    <img src="Assets/buy_text.png" alt="구매하러가기">
+                </div>
+            </div>
+            </div>
+        </section>
+    </section>
+
+    <scetion id="hello" class="container">
+        <h2 id="hello-text">반가워요!</h2>
+        <img src="Assets/mascot_friends_1.png" alt="상상부기 프렌즈 1">
+    </scetion>
+
+    <section id="mascot">
+        <section id="story" class="container">
+            <h2 id="story-title" class="section-title reveal-up">탄생 스토리</h2>
+            <div class="section-content reveal-up">
+                <div class="text">
+                    <p>어느 날, 상상관 땅속 깊은 곳에서 신비로운 알 하나가 발견되었어요.</p>
+                    <p>그 알에서 태어난 건 파란 후드를 입고 특별한 가방을 멘 작고 귀여운 거북이였답니다.</p>
+                </div>
+                <div class="icon">🥚✨</div>
+            </div>
+        </section>
+
+        <section id="features" class="container">
+            <h2 id="features-title" class="section-title reveal-up">상상력이 가득한 마법의 가방</h2>
+            <p id="features-description" class="section-description reveal-up">무엇이든 꺼낼 수 있는 신비한 가방으로 한성인들의
+                꿈과 상상을
+                현실로 만들어요</p>
+            <div id="feature-grid" class="grid">
+                <div class="grid-card reveal-up">
+                    <div class="icon"></div>
+                    <p>도움이 필요할 때마다 나타나는 따뜻한 마음</p>
+                </div>
+                <div class="grid-card reveal-up">
+                    <div class="icon"></div>
+                    <p>상추를 좋아하는 귀여운 입맛</p>
+                </div>
+                <div class="grid-card reveal-up">
+                    <div class="icon"></div>
+                    <p>2019년 5월 11🥳</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="lifestyle" class="container">
+            <h2 class="section-title reveal-up">상상부기의 하루</h2>
+            <p id="lifestyle-description" class="section-description reveal-up">여러분과 똑같은 일상을 보내는 진짜 한성인!</p>
+            <div id="lifestyle-grid" class="grid">
+                <div class="grid-card reveal-up">
+                    <div class="icon">☀️ 아침</div>
+                    <p>상추 샐러드로 든든한 아침식사</p>
+                </div>
+                <div class="grid-card reveal-up">
+                    <div class="icon">📚 낮</div>
+                    <p>도서관에서 열심히 공부</p>
+                </div>
+                <div class="grid-card reveal-up">
+                    <div class="icon">🏃‍♂️ 오후</div>
+                    <p>체력단련실에서 운동</p>
+                </div>
+                <div class="grid-card reveal-up">
+                    <div class="icon">🌙 저녁</div>
+                    <p>친구들과 함께 캠퍼스 산책</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="personality" class="container">
+            <h2 id="personality-title" class="section-title reveal-up">모든 한성인의 든든한 친구</h2>
+            <p id="personality-description" class="section-description reveal-up">언제나 밝고 긍정적인 에너지로 캠퍼스 곳곳에서
+                여러분을
+                응원해요</p>
+            <div class="quote reveal-up">
+                <div class="icon">💙</div>
+                <p class="text">"한성인들이 행복할 때 저도 행복해요!"</p>
+            </div>
+        </section>
+
+        <section id="friends" class="container">
+            <h2 id="friends-title" class="section-title reveal-up">혼자가 아니에요! 사랑스러운 친구들과 함께</h2>
+            <div id="friends-grid" class="grid">
+                <div class="grid-card reveal-up">
+                    <div class="icon">🐱</div>
+                    <h3>한성냥이</h3>
+                    <p>캠퍼스의 귀여운 고양이 친구</p>
+                </div>
+                <div class="grid-card reveal-up">
+                    <div class="icon">🥬</div>
+                    <h3>상찌</h3>
+                    <p>상추에서 태어난 상상부기의 베프</p>
+                </div>
+                <div class="grid-card reveal-up">
+                    <div class="icon">🐔</div>
+                    <h3>꼬꼬&꾸꾸</h3>
+                    <p>교내에서 키우는 사랑스러운 닭 커플</p>
+                </div>
+            </div>
+            <div class="photo-container reveal-up">
+                <img src="https://pplx-res.cloudinary.com/image/upload/v1748850477/pplx_project_search_images/542347bf2b04a90ccda8dd09c0ba9476e5188101.jpg"
+                    alt="상상부기와 친구들" id="friends-photo" class="photo">
+            </div>
+        </section>
+
+        <section id="bye" class="container">
+            <h2 id="bye-title" class="section-title reveal-up">앞으로도 계속될 상상부기의 이야기</h2>
+            <p id="bye-description" class="section-description reveal-up">더 많은 사람들에게 사랑받는 마스코트가 되어 한성대학교의
+                따뜻한 마음을
+                전해드릴게요</p>
+            <div id="vision-content" class="section-content reveal-up">
+                <div class="icon">🌟</div>
+                <p>상상부기와 함께 만들어갈 더 특별한 캠퍼스 라이프를 기대해주세요!</p>
+            </div>
+        </section>
+    </section>
+
+    <section id="univ">
+
+    </section>
+
+    <section id="shop">
+
+    </section>
+</body>
+
 </html>
