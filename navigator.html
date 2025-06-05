@@ -39,25 +39,29 @@
     </style>
 
     <script>
-        console.log(document.getElementById("main"));
-        document.getElementById(parent.currentPage).className = "current";
+        document.addEventListener("DOMContentLoaded", () => {
+            console.log(document.getElementById("main"));
+            document.getElementById(parent.currentPage).className = "current";
+        });
     </script>
 </head>
 
 <body>
     <nav class="nav-row bold">
-        <li>
-            <a id="main" href="index.html" target="_top">홈으로</a>
-        </li>
-        <li>
-            <a id="shop" href="shopping.html" target="_top">상품 목록</a>
-        </li>
-        <li>
-            <a id="mypage" href="mypage.html" target="_top">마이페이지</a>
-        </li>
-        <li>
-            <a id="contact" href="contact.html" target="_top">문의</a>
-        </li>
+        <ul>
+            <li>
+                <a id="main" href="index.html" target="_top">홈으로</a>
+            </li>
+            <li>
+                <a id="shop" href="shopping.html" target="_top">상품 목록</a>
+            </li>
+            <li>
+                <a id="mypage" href="mypage.html" target="_top">마이페이지</a>
+            </li>
+            <li>
+                <a id="contact" href="contact.html" target="_top">문의</a>
+            </li>
+        </ul>
     </nav>
 </body>
 
