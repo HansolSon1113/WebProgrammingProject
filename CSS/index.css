@@ -71,7 +71,7 @@ body {
 
 #intro-container {
     width: 100%;
-    height: calc(100% - 60px);
+    height: calc(100% - 80px);
     overflow-x: hidden;
     padding: 0;
 }
@@ -79,7 +79,7 @@ body {
 #intro-photo {
     margin: 0;
     width: 100%;
-    height: calc(100vh - 60px);
+    height: calc(100vh - 80px);
     background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(200, 200, 200, 0.8)), url("../Assets/intro.jpg");
     background-position: center;
     background-size: cover;
@@ -99,6 +99,7 @@ body {
 
 #intro-mascot {
     gap: 5%;
+    margin-bottom: 7%;
 }
 
 #intro-mascot img {
