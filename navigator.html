@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+    <link rel="stylesheet" href="CSS/nanum_font.css">
     <style>
         body {
             margin: 0;
@@ -21,30 +22,32 @@
         }
 
         .nav-row li {
-            padding-top: 22px;
+            padding-top: 32px;
             list-style: none;
         }
 
-        .nav-row button {
+        .nav-row a {
             border: none;
             background-color: white;
+            text-decoration: none;
+            color: black;
         }
     </style>
 </head>
 
 <body>
-    <nav class="nav-row">
+    <nav class="nav-row bold">
         <li>
-            <button>홈으로</button>
+            <a href="index.html">홈으로</button>
         </li>
         <li>
-            <button>상품 목록</button>
+            <a href="shopping.html">상품 목록</button>
         </li>
         <li>
-            <button>마이페이지</button>
+            <a href="mypage.html">마이페이지</button>
         </li>
         <li>
-            <button>문의</button>
+            <a href="contact.html">문의</button>
         </li>
     </nav>
 </body>

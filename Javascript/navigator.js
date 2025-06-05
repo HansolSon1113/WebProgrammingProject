@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const height = 60;
+    const height = 80;
     const navigator = document.createElement("section");
     navigator.id = "nav";
     navigator.style = `height: ${height}px`;
@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
             id="nav-frame"
             src="navigator.html"
             style="width: 100%; height: ${height}px; border: none; padding: 0;"
-            onload="resizeIframe(this)"
         ></iframe>
     `;
 
