@@ -1,3 +1,5 @@
+import pages from "./pages";
+
 document.addEventListener("DOMContentLoaded", () => {
     const height = 80;
     const navigator = document.createElement("section");
