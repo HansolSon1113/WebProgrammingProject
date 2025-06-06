@@ -1,4 +1,10 @@
-import pages from "./pages";
+const pages = {
+    main: "main",
+    shop: "shop",
+    mypage: "mypage",
+    contact: "contact"
+}
+Object.freeze(pages);
 
 document.addEventListener("DOMContentLoaded", () => {
     const height = 80;
