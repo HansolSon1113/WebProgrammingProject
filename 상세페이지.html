@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>상품 상세</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f7f7f7;
+      margin: 0;
+      padding: 40px;
+    }
+
+    .detail-container {
+      display: flex;
+      gap: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-image {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .product-image img {
+      width: 100%;
+      border-radius: 10px;
+      aspect-ratio: 3 / 2;
+      object-fit: contain;
+    }
+
+    .product-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .product-info h2 {
+      font-size: 28px;
+      margin: 0 0 20px;
+    }
+
+    .product-info p {
+      font-size: 18px;
+      margin: 5px 0;
+    }
+
+    .product-info .price {
+      font-size: 24px;
+      font-weight: bold;
+      color: #e63946;
+      margin: 20px 0;
+    }
+
+    .buy-button {
+      padding: 12px 20px;
+      font-size: 16px;
+      background-color: #457b9d;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      width: fit-content;
+      transition: background-color 0.3s ease;
+    }
+
+    .buy-button:hover {
+      background-color: #1d3557;
+    }
+  </style>
+</head>
+<body>
+  <div class="detail-container" id="product-detail">
+    로딩 중...
+  </div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
+
+    fetch('test.json')
+      .then(res => res.json())
+      .then(data => {
+        const product = data.find(p => p.상품번호 == productId);
+        const container = document.getElementById('product-detail');
+
+        if (!product) {
+          container.innerHTML = '<p>해당 상품을 찾을 수 없습니다.</p>';
+          return;
+        }
+
+        container.innerHTML = `
+          <div class="product-image">
+            <img src="굿즈이미지/${product.이미지파일}" alt="${product.상품명}">
+          </div>
+          <div class="product-info">
+            <div>
+              <h2>${product.상품명}</h2>
+              <p class="price">${product.가격.toLocaleString()}원</p>
+              <p><strong>상세설명:<br></strong> ${product.상세설명}</p>
+            </div>
+            <button class="buy-button">구매하기</button>
+          </div>
+        `;
+      })
+      .catch(err => {
+        document.getElementById('product-detail').innerHTML = '<p>데이터를 불러오지 못했습니다.</p>';
+        console.error(err);
+      });
+  </script>
+</body>
+</html>

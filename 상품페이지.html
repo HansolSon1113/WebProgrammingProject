@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>쇼핑몰 페이지</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+    }
+
+    /* 카테고리 바 */
+    .category-bar {
+      background-color: #333;
+      padding: 12px 20px;
+      display: flex;
+      gap: 20px;
+    }
+
+    .category-bar a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .category-bar a:hover {
+      text-decoration: underline;
+    }
+
+    /* 상품 그리드 */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 4px; /* 아주 미세한 간격 */
+      padding: 10px;
+      background-color: #f9f9f9;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .product-card {
+      background-color: #fff;
+      overflow: hidden;
+      border-radius: 6px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card img {
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      object-fit: contain;
+      display: block;
+    }
+
+    .product-card h3 {
+      margin: 10px 0 4px;
+      font-size: 16px;
+    }
+
+    .product-card .price {
+      margin-bottom: 10px;
+      color: #e91e63;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .product-card.hovered {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .product-card.dimmed {
+      transform: scale(0.95);
+      opacity: 0.5;
+    }
+
+    #product-info {
+      position: absolute;
+      background: white;
+      border: 1px solid #ddd;
+      padding: 12px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      font-size: 14px;
+      z-index: 3;
+      transition: opacity 0.3s ease;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- 카테고리 바 -->
+  <div class="category-bar">
+    <a href="#">전체</a>
+  </div>
+
+  <!-- 상품 목록 -->
+  <div class="product-grid" id="product-list">
+  </div>
+  <div id="product-info" class="hidden"></div>
+
+  <script>
+    //json파일 가져오기
+    fetch('test.json')
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById('product-list');
+        const infoBox = document.getElementById('product-info');
+
+        //상품 카드 띄우기
+        data.forEach(product => {
+          const card = document.createElement('div');
+          card.className = 'product-card';
+          card.innerHTML = `<img src="굿즈이미지/${product.이미지파일}" alt="${product.상품명}">`;
+          container.appendChild(card);
+
+          //마우스 올릴 시 강조 및 인포박스 띄우기
+          card.addEventListener('mouseenter', e => {
+            document.querySelectorAll('.product-card').forEach(c => {
+              c.classList.add('dimmed');
+              c.classList.remove('hovered');
+            });
+            card.classList.remove('dimmed');
+            card.classList.add('hovered');
+
+            //인포박스 띄우기
+            infoBox.innerHTML = `
+              <strong>${product.상품명}</strong><br>
+              가격: ${product.가격.toLocaleString()}원<br>
+            `;
+            infoBox.classList.remove('hidden');
+            const rect = card.getBoundingClientRect();
+            const offset = card.offsetWidth * 0.1;
+            const infoBoxWidth = infoBox.offsetWidth;
+            const spaceRight = window.innerWidth - rect.right;
+
+            let left; 
+            if (spaceRight > offset + infoBoxWidth) {
+              left = rect.right + window.scrollX + offset;
+            }
+            else {
+              left = rect.left - infoBoxWidth - offset + window.scrollX;
+            }
+            infoBox.style.left = `${left}px`;
+            infoBox.style.top = `${rect.top + window.screenY}px`;
+          })
+
+          //마우스 치울시 강조해제
+          card.addEventListener('mouseleave', e => {
+            document.querySelectorAll('.product-card').forEach(c => {
+              c.classList.remove('dimmed', 'hovered');
+            });
+            infoBox.classList.add('hidden');
+          })
+          
+          //상품카드 클릭시 상세페이지 열기
+          card.addEventListener('click', () => {
+            window.open(`상세페이지.html?id=${product.상품번호}`, '_blank');
+          });
+          
+
+
+      })
+    })
+
+    .catch(err => console.error('실패', err));
+  </script>
+
+</body>
+</html>
