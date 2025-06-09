@@ -36,6 +36,11 @@
 
 body {
     font-family: "NanumSquareNeo";
+    text-align: center;
+}
+
+.nanum {
+    font-family: "NanumSquareNeo";
 }
 
 .bold {

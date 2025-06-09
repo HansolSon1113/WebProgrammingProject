@@ -9,9 +9,10 @@
     <meta name="description" content="한성대학교 기프트샵">
     <meta name="author" content="2491023-손한솔, 2491048-정연우 WebProgramming 기말 프로젝트">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>한성대학교 기념품</title>
-    
+    <title>한성대학교 기프트샵</title>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+    <link rel="stylesheet" href="CSS/nanum_font.css">
     <link rel="stylesheet" href="CSS/index.css">
     <script src="Javascript/navigator.js"></script>
 
@@ -23,7 +24,7 @@
 <body>
     <section id="intro">
         <section id="intro-container" class="container">
-            <div id="intro-photo" class="flex-column">
+            <div id="intro-photo" class="flex-column bgpic-setting">
                 <div id="intro-mascot" class="flex-row">
                     <div class="flex-column">
                         <div class="spacer"></div>
@@ -49,9 +50,9 @@
                     <label for="shop-btn">
                         <img src="Assets/mascot_3.png" alt="상상부기 3">
                     </label>
-                    <button id="shop-btn" class="btn">
+                    <a href="shop.html" target="#">
                         <img src="Assets/buy_text.png" alt="구매하러가기">
-                    </button>
+                </a>
                 </div>
             </div>
             </div>
@@ -167,18 +168,60 @@
         </section>
     </section>
 
-    <section id="univ">
-        <section id="univ-intro">
-
+    <section id="univ" class="nanum">
+        <section id="univ-intro" class="container">
+            <div id="univ-intro-photo" class="bgpic-setting">
+                <img src="Assets/univ_logo.png" alt="한성대학교">
+            </div>
         </section>
-        <section id="univ-history">
-
+        <section id="univ-info" class="container">
+            <h2>한성대학교는</h3>
+                <h1>진리(眞理)ㆍ지선(至善)
+            </h2>
+            <h2>교육이념을 바탕으로 창의적 전문인, 포용적 사회인, 열린 세계인을 양성합니다.</h3>
         </section>
-        <section id="univ-info">
-
+        <section id="univ-history" class="container">
+            <h2>1945 - 재단법인 한성학원 설립</h1>
+                <h4>1972 - 한성여자대학 설립</h1>
+                    <h4>1978 - 공학 전환</h1>
+                        <h4>1993 - 4년제 종합대학 승격</h3>
+                            <h3>2024 - 소프트웨어 중심대학 선정
+            </h2>
+            <h1>2025 - 53주년!</h1>
         </section>
-        <section id="univ-bye">
-
+        <section id="univ-description" class="container">
+            <div class="flex-row">
+                <div id="univ-desc-sidebar" class="flex-column bold">
+                    <button data-content="univ-info-1" class="btn">창의융합 인재 양성</button>
+                    <hr>
+                    <button data-content="univ-info-2" class="btn">HS 학생성공 지원체계</button>
+                    <hr>
+                    <button data-content="univ-info-3" class="btn">미래가치를 실현하는 산학협력</button>
+                    <hr>
+                    <button data-content="univ-info-4" class="btn">글로컬 가치 실현</button>
+                    <hr>
+                    <button data-content="univ-info-5" class="btn">ESG</button>
+                </div>
+                <div id="univ-desc-items">
+                    <ol class="flex-column">
+                        <li>전공트랙학과 연계맞춤형 창의융합 전공교육 고도화</li>
+                        <li>사회수요 맞춤형 역량중심 교양 교육 고도화</li>
+                        <li>창의적 문제해결 중심 고효과 비교과 교육 확산</li>
+                        <li>DX 기반 신산업 인재 양성 교육 확산</li>
+                        <li>첨단 인프라 기반 HS 창의융합 교육플랫폼 고도화</li>
+                </div>
+            </div>
+            </div>
+        </section>
+        <section id="univ-bye" class="container">
+            <div id="univ-bye-picture" class="bgpic-setting">
+                <h2>한성대학교에서</h2>
+                <h1>미래를 설계하세요</h1>
+                <br><br>
+                <a href="https://hansung.ac.kr" target="_blank">
+                    <img src="Assets/univ_logo.png" alt="한성대학교 홈페이지" class="photo">
+                </a>
+            </div>
         </section>
     </section>
 
@@ -188,7 +231,9 @@
                 <label for="bye-btn">
                     구매하러가기
                 </label>
-                <img src="Assets/buy_text.png" alt="구매하러가기">
+                <a href="shop.html" target="#">
+                    <img src="Assets/buy_text.png" alt="구매하러가기">
+                </a>
             </div>
         </button>
     </section>
