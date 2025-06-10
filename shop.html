@@ -42,6 +42,17 @@
       justify-content: space-between;
     }
 
+    /* 모바일 환경 */
+    .product-grid-mobile {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+      padding: 10px;
+      background-color: #f9f9f9;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
     .product-card {
       background-color: #fff;
       overflow: hidden;
@@ -112,11 +123,21 @@
   <div id="product-info" class="hidden"></div>
 
   <script>
+    
+    let isMobile = /iPone|iPad|iPod|Android/i.test(navigator.userAgent);
+    const container = document.getElementById('product-list');
+
+    if (isMobile) {
+      container.classList.add('product-grid-mobile');
+    }
+    else {
+      container.classList.add('product-grid');
+    }
+    
     //json파일 가져오기
     fetch('test.json')
       .then(res => res.json())
       .then(data => {
-        const container = document.getElementById('product-list');
         const infoBox = document.getElementById('product-info');
 
         //상품 카드 띄우기
