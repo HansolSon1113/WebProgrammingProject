@@ -1,0 +1,124 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#page-content {
+    text-align: center;
+    height: 100%;
+}
+
+.header {
+    padding: 20px;
+    background-color: rgba(211, 235, 245, 0.934);
+}
+
+.footer {
+    padding: 30px;
+    background-color: rgba(245, 245, 220, 0.062);
+}
+
+body {
+    background-color: rgba(0, 0, 0, 0.85);
+}
+
+body li {
+    color: white;
+}
+
+body span {
+    color: cornsilk;
+}
+
+.login-form {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    border: 2px solid #fdfdfd00;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    width: fit-content;
+    margin: 150px 0;
+}
+
+.login-row {
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+}
+
+.login-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.textform input {
+    width: 150px;
+}
+
+.submitform input[type="submit"] {
+    background-color: bisque;
+    color: gray;
+    border: none;
+    border-radius: 20px;
+    padding: 35px 22px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.submitform input[type="submit"]:hover {
+    background-color: rgba(255, 228, 196, 0.8);
+}
+
+.checkbox {
+    color: gray;
+    flex-basis: 100%;
+}
+
+.login-form h1 {
+    color: beige;
+    margin-bottom: 0px;
+    flex-basis: 100%;
+}
+
+.checkform {
+    color: gray;
+    flex-basis: 100%;
+}
+
+.required-form-control {
+    width: 150px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    outline: none;
+}
+
+.shortcuts {
+    color: burlywood;
+    margin-left: 15px;
+}
+
+.shortcuts a {
+    color: gray;
+    text-decoration: none;
+}
+
+.shortcuts a:hover {
+    text-decoration: underline;
+}
+
+.loginfind a {
+    color: cornsilk;
+    text-decoration: none;
+}
+
+.loginfind a:hover {
+    text-decoration: underline;
+}
