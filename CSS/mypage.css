@@ -10,11 +10,6 @@ body {
     height: 100%;
 }
 
-.header {
-    padding: 20px;
-    background-color: rgba(211, 235, 245, 0.934);
-}
-
 .footer {
     padding: 30px;
     background-color: rgba(245, 245, 220, 0.062);
