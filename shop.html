@@ -124,7 +124,7 @@
 
   <script>
     
-    let isMobile = /Mobi/i.test(window.navigator.userAgent);
+    let isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     const container = document.getElementById('product-list');
 
     if (isMobile) {
