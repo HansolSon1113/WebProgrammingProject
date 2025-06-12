@@ -13,7 +13,6 @@
       font-family: 'Arial', sans-serif;
     }
 
-    /* 카테고리 바 */
     .category-bar {
       background-color: #333;
       padding: 12px 20px;
@@ -35,7 +34,7 @@
     .product-grid {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      gap: 4px; /* 아주 미세한 간격 */
+      gap: 4px;
       padding: 10px;
       background-color: #f9f9f9;
       flex-wrap: wrap;
@@ -105,7 +104,56 @@
     }
 
     .hidden {
-      display: none;
+      display: none !important;
+    }
+
+    #product-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+      overflow: auto;
+    }
+
+    .modal-content {
+      background-color: white;
+      padding: 20px;
+      width: 800px;
+      max-width: 90%;
+      border-radius: 10px;
+      position: absolute;
+      animation: fadeIn 0.3s ease; 
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .modal-content img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+      object-fit: contain;
+    }
+
+    .close-button {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    #modal-price, #modal-name {
+      text-align: center;
     }
 
   </style>
@@ -120,13 +168,34 @@
   <!-- 상품 목록 -->
   <div id="product-list">
   </div>
+  <!--마우스 호버링 시 뜨는 설명박스-->
   <div id="product-info" class="hidden"></div>
+  <!--상세창-->
+ <div id="product-modal" class="hidden">
+  <div class="modal-content">
+    <span class="close-button">&times;</span>
+    <img id="modal-img" src="" alt="">
+    <h2 id="modal-name"></h2>
+    <p id="modal-price"></p>
+    <p id="modal-detailBtn"></p>
+    <p id="modal-buyBtn"></p>
+  </div>
+</div>
 
   <script>
-    
+    const container = document.getElementById('product-list');
+
+    const infoBox = document.getElementById('product-info');
+
+    const modal = document.getElementById('product-modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalName = document.getElementById('modal-name');
+    const modalPrice = document.getElementById('modal-price');
+    const modalCategory = document.getElementById('modal-category');
+    const closeBtn = document.querySelector('.close-button');
+
     let isMobile = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     console.log(navigator.userAgent);
-    const container = document.getElementById('product-list');
 
     if (isMobile) {
       container.classList.add('product-grid-mobile');
@@ -134,12 +203,14 @@
     else {
       container.classList.add('product-grid');
     }
+    window.addEventListener('DOMContentLoaded', () => {
+      modal.classList.add('hidden');
+    });    
     
     //json파일 가져오기
     fetch('test.json')
       .then(res => res.json())
       .then(data => {
-        const infoBox = document.getElementById('product-info');
 
         //상품 카드 띄우기
         data.forEach(product => {
@@ -189,15 +260,24 @@
           
           //상품카드 클릭시 상세페이지 열기
           card.addEventListener('click', () => {
-            window.open(`detail.html?id=${product.상품번호}`, '_blank');
-          });
-          
-
-
+            modalImg.src = `굿즈이미지/${product.이미지파일}`;
+            modalName.textContent = product.상품명;
+            modalPrice.textContent = `${product.가격}원`;
+            modal.classList.remove('hidden');
+          });          
+        })
+        closeBtn.addEventListener('click', () => {
+            modal.classList.add('hidden');
+          })
+          modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+              modal.classList.add('hidden');
+            }
+          })  
       })
-    })
-
     .catch(err => console.error('실패', err));
+    
+
   </script>
 
 </body>
