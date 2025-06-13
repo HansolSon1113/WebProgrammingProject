@@ -35,8 +35,11 @@ function getUserData() {
                 }
             })
             .then((response) => {
-                console.log(response);
                 console.log(response.status);
+                if(response.status == 404)
+                {
+                    alert("구매 정보가 없습니다.");
+                }
             });
     });
 }
