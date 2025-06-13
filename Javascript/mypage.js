@@ -24,6 +24,16 @@ function getUserData() {
             return;
         }
 
-        loginForm.submit();
+        fetch(api,
+            {
+                method: "POST",
+                body: {
+                    "id": username.value,
+                    "password": password.value,
+                }
+            })
+            .then((response) => {
+                console.log(response)
+            });
     });
 }
