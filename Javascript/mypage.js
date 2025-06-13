@@ -39,6 +39,7 @@ function getUserData() {
                 if(response.status == 404)
                 {
                     alert("구매 정보가 없습니다.");
+                    return;
                 }
                 writeItems(response.json());
             });
