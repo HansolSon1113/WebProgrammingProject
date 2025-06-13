@@ -4,8 +4,14 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("input-username").value = rememberedUsername;
         document.getElementById("remember").checked = true;
     }
+});
+
+function getUserData() {
+    const api = "http://138.2.120.185/WebProgramming/userdata.php"
 
     const loginForm = document.querySelector("form");
+    loginForm.method = "post";
+    loginForm.action = api;
     loginForm.addEventListener("submit", function (event) {
         event.preventDefault();
 
@@ -18,16 +24,6 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        if (username === "Username" && password === "Password") {
-            if (remember) {
-                localStorage.setItem("rememberedUsername", username);
-            } else {
-                localStorage.removeItem("rememberedUsername");
-            }
-            alert("로그인 성공!");
-            window.location.href = "https://learn.hansung.ac.kr";
-        } else {
-            alert("아이디/비밀번호 오류");
-        }
+        loginForm.submit();
     });
-});
+}
