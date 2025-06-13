@@ -40,6 +40,13 @@ function getUserData() {
                 {
                     alert("구매 정보가 없습니다.");
                 }
+                writeItems(response.json());
             });
     });
+}
+
+function writeItems(result) {
+    const content = document.getElementById("page-content");
+
+    content.innerHTML = result;
 }
