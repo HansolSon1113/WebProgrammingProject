@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("input-username").value = rememberedUsername;
         document.getElementById("remember").checked = true;
     }
+
+    getUserData();
 });
 
 function getUserData() {
