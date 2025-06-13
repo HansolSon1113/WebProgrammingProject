@@ -1,14 +1,19 @@
 document.addEventListener("DOMContentLoaded", function () {
+    const credentials = getCookie("credentials");
+    if (credentials) {
+        const { id, pw } = JSON.parse(credentials);
+        getUserData(id, pw)
+        return;
+    }
     const rememberedUsername = localStorage.getItem("rememberedUsername");
     if (rememberedUsername) {
         document.getElementById("input-username").value = rememberedUsername;
         document.getElementById("remember").checked = true;
     }
-
     getUserData();
 });
 
-function getUserData() {
+function getUserData(id, pw) {
     const api = "http://138.2.120.185/WebProgramming/userdata.php"
 
     const loginForm = document.querySelector("form");
@@ -17,8 +22,10 @@ function getUserData() {
     loginForm.addEventListener("submit", function (event) {
         event.preventDefault();
 
-        const username = document.getElementById("input-username").value.trim();
-        const password = document.getElementById("input-password").value.trim();
+        if (!id || !pw) {
+            id = document.getElementById("input-username").value.trim();
+            pw = document.getElementById("input-password").value.trim();
+        }
         const remember = document.getElementById("remember").checked;
 
         if (!username || !password) {
@@ -30,18 +37,26 @@ function getUserData() {
             {
                 method: "POST",
                 body: {
-                    "id": username.value,
-                    "password": password.value,
+                    "id": id,
+                    "password": pw,
                 }
             })
             .then((response) => {
                 console.log(response.status);
-                if(response.status == 404)
-                {
-                    alert("구매 정보가 없습니다.");
-                    return;
+                if (response.status == 200) {
+                    writeItems(response.json());
+                    if(remember)
+                    {
+                        localStorage.setrItem("rememberedUsername", username);
+                        document.cooke = `id=${id}, pw=${pw}; path=/`
+                    }
                 }
-                writeItems(response.json());
+                else if (response.status == 401) {
+                    alert("비밀번호를 확인해주세요.");
+                }
+                else if (response.status == 404) {
+                    alert("사용자 정보가 없습니다.");
+                }
             });
     });
 }

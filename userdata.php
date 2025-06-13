@@ -17,14 +17,14 @@ if (mysqli_connect_errno()) {
 }
 
 if ($productId) {
-    $sqlg = "SELECT password, purchases FROM users WHERE id = ?";
-    $stmtg = $con->prepare($sql);
-    $stmtg->bind_param('s', $userId);
+    $sqlg = "SELECT password, items FROM user WHERE id = ?";
+    $stmtg = $con->prepare($sqlg);
+    $stmtg->bind_param('s', $id);
     $stmtg->execute();
     $resultg = $stmtg->get_result();
 
     if ($row = $resultg->fetch_assoc()) {
-        if ($password !== $row['password']) {
+        if ($pw !== $row['password']) {
             http_response_code(401);
             exit;
         }
@@ -32,23 +32,23 @@ if ($productId) {
         $existing = json_decode($row['items'], true);
         if (!is_array($existing)) {
             $existing = [];
-            $existing[] = $productId;
-            $newJson = json_encode($existing, JSON_UNESCAPED_UNICODE);
-
-            $sqlu = "UPDATE users SET items = ? WHERE id = ?";
-            $stmtu = $con->prepare($sqlu);
-            $stmtu->bind_param('ss', $newJson, $userId);
-            $stmtu->execute();
-
-            http_response_code(200);
-            exit;
         }
+        $existing[] = $productId;
+        $newJson = json_encode($existing, JSON_UNESCAPED_UNICODE);
+
+        $sqlu = "UPDATE user SET items = ? WHERE id = ?";
+        $stmtu = $con->prepare($sqlu);
+        $stmtu->bind_param('ss', $newJson, $id);
+        $stmtu->execute();
+
+        http_response_code(200);
+        exit;
     }
 
     $initial = [$productId];
     $initialJson = json_encode($initial, JSON_UNESCAPED_UNICODE);
 
-    $sqli = "INSERT INTO users (id, password, items) VALUES (?, ?, ?)";
+    $sqli = "INSERT INTO user (id, password, items) VALUES (?, ?, ?)";
     $stmti = $con->prepare($sqli);
     $stmti->bind_param('sss', $id, $password, $initialJson);
     $stmti->execute();
@@ -60,7 +60,7 @@ if ($productId) {
     exit;
 }
 
-$sqlf = "SELECT id, password, items FROM user WHERE id = ?";
+$sqlf = "SELECT password, items FROM user WHERE id = ?";
 $stmtf = $con->prepare($sqlf);
 $stmtf->bind_param("s", $id);
 $stmtf->execute();
@@ -68,23 +68,26 @@ $resultf = $stmtf->get_result();
 
 if($row = $resultf->fetch_assoc())
 {
-    if($password != $row["password"])
+    if($pw != $row["password"])
     {
         http_response_code(401);
         exit;
     }
 
     http_response_code(200);
-    echo json_encode([
-        "items"=> $row["items"]
-        ]);
+    echo $row["items"];
     exit;
 }
 
-$stmtg->close();
-$stmtu->close();
-$stmti->close();
-$stmtf->close();
+http_response_code(404);
+
+foreach(["stmtg", "stmtu", "stmti", "stmtf"] as $stmt)
+{
+    if(isset($$s) && $$s instanceof mysqli_stmt)
+    {
+        $$s->close();
+    }
+}
 $con->close();
 
 ?>
