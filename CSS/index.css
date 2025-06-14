@@ -59,7 +59,7 @@ body {
     font-size: 1.5rem;
 }
 
-.grid-card p {
+.grid h3 {
     font-size: 1.5rem;
 }
 
@@ -202,8 +202,10 @@ body {
 
 .grid {
     display: grid;
-    grid-template-columns: 30% 30%;
-    grid-template-rows: 30% 30%;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
 }
 
 #univ {
