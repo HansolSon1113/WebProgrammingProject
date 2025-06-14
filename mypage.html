@@ -19,65 +19,51 @@
 </head>
 
 <body>
+    <section id="result" hidden></section>
     <div id="page">
-        <div id="page-content">
-            <form class="login-form">
-                <h1>Login</h1>
-                <div class="login-row">
-                    <div class="login-fields">
-                        <div class="usernameform">
-                            <input type="text" id="input-username" name="username" placeholder="Username"
-                                class="required-form-control">
-                        </div>
-                        <div class="passwordform">
-                            <input type="password" id="input-password" name="password" placeholder="Password"
-                                class="required-form-control">
-                        </div>
+        <form class="login-form">
+            <h1>Login</h1>
+            <div class="login-row">
+                <div class="login-fields">
+                    <div class="usernameform">
+                        <input type="text" id="input-username" name="username" placeholder="ID" required
+                            oninvalid="this.setCustomValidity('학번을 입력해주세요.')" oninput="this.setCustomValidity('')">
                     </div>
-
-                    <div class="submitform">
-                        <input type="submit" name="loginbutton" class="btn btn-success" value="Log in">
+                    <div class="passwordform">
+                        <input type="password" id="input-password" name="password" placeholder="Password" required
+                            oninvalid="this.setCustomValidity('비밀번호를 입력해주세요.')" oninput="this.setCustomValidity('')">
                     </div>
                 </div>
 
-                <div class="checkform">
-                    <label>
-                        <input type="checkbox" id="remember" name="rememberusername">
-                        Remember Username
-                    </label>
+                <div class="submitform">
+                    <input type="submit" name="loginbutton" class="btn btn-success" value="Log in">
                 </div>
-
-                <div class="loginfind">
-                    <a href="https://info.hansung.ac.kr/jsp/infofind/infoFindView_rwd.jsp" target="_blank">
-                        Find ID / PW
-                    </a>
-                </div>
-            </form>
-        </div>
-
-        <div class="shortcuts">
-            <p>Hansung University Shortcuts</p>
-            <ul>
-                <li class="family-1"><a href="http://www.hansung.ac.kr/" target="_blank">Homepage</a>
-                </li>
-                <li class="family-2"><a href="https://info.hansung.ac.kr/" target="_blank">CTL
-                        Program</a></li>
-                <li class="family-3"><a href="http://hsel.hansung.ac.kr/" target="_blank">Library</a>
-                </li>
-                <li class="family-4"><a href="http://intra.hansung.ac.kr/" target="_blank">Intranet</a>
-                </li>
-                <li class="family-5"><a href="https://mail.hansung.ac.kr/" target="_blank">Webmail</a>
-                </li>
-            </ul>
-        </div>
-
-        <div id="page-footer" class="footer">
-            <div class="person">
-                <span>한성대학교</span>
             </div>
+
+            <div class="checkform">
+                <label>
+                    <input type="checkbox" id="remember" name="rememberusername">
+                    Remember Username
+                </label>
+            </div>
+
+            <div class="loginfind">
+                <a href="https://info.hansung.ac.kr/jsp/infofind/infoFindView_rwd.jsp" target="_blank">
+                    Find ID / PW
+                </a>
+            </div>
+        </form>
+        <div id="links">
+            <a href="https://hansung.ac.kr/" target="_blank">한성대학교 홈페이지</a>
+            <a href="https://info.hansung.ac.kr/" target="_blank">종합정보시스템</a>
         </div>
     </div>
 
+    <footer class="footer">
+        <p>한성대학교 기프트샵</p>
+        <p>Team undefined(AI 응용학과 2491023 손한솔, 2491048 정연우)</p>
+        <p>웹프로그래밍 기말 프로젝트</p>
+    </footer>
 </body>
 
 </html>
