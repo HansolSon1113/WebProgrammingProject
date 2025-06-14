@@ -2,6 +2,7 @@ const api = "http://138.2.120.185/WebProgrammingProject/"
 
 document.addEventListener("DOMContentLoaded", function () {
     const credential = getCredentials();
+    console.log(credential);
     if (credential) {
         ({ id, pw } = credential);
         getUserData(id, pw)
@@ -19,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function getCredentials() {
     const id = document.cookie.match(/(?<=^|;\s*)id=([^;]*)/); // id 값만 정확히 추출
     const pw = document.cookie.match(/(?<=^|;\s*)pw=([^;]*)/);
-    console.log(id);
+
     return (id && pw) ? {
         id: decodeURIComponent(id[1]),
         pw: decodeURIComponent(pw[1])
