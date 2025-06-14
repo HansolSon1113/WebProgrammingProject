@@ -70,6 +70,9 @@ function writeItems(result) {
     const container = document.getElementById("result-container");
     container.hidden = false;
     const content = document.getElementById("result");
+    console.log(result.content);
+    console.log(result);
+    console.log(result.body);
     result.content.forEach(r => {
         content.innerHTML += `<div>${r}</div>`;
     });
