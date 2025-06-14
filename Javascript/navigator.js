@@ -7,7 +7,6 @@ const pages = {
 Object.freeze(pages);
 
 document.addEventListener("DOMContentLoaded", () => {
-    document.body.style.paddingTop = "80px";
     document.head.innerHTML += `
     <style>
         #nav {
@@ -37,13 +36,14 @@ document.addEventListener("DOMContentLoaded", () => {
         ></iframe>
     `;
 
+        document.body.style.paddingTop = `${height}px`;
     document.body.insertBefore(navigator, document.body.firstChild);
 
     let lastY = window.scrollY;
     window.addEventListener("scroll", () => {
         const currentY = window.scrollY;
 
-        if (currentY < lastY) {
+        if (currentY < lastY) { //화면을 올렸을때
             navigator.classList.remove("nav-hide");
         } else {
             navigator.classList.add("nav-hide");
