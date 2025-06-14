@@ -138,6 +138,7 @@
     text-align: center;
     align-items: center;
     gap: 10%;
+    overflow: hidden;
 }
 
 .result-row h2 {
@@ -175,7 +176,6 @@
 
 img {
     width: 30%;
-    max-height: 10%;
     height: auto;
 }
 
