@@ -23,11 +23,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.addEventListener("scroll", () => {
         console.log("scroll");
-        const top = navigator.offsetTop;
+        nav = document.getElementById("nav");
+        const top = nav.offsetTop;
         if (window.scrollY >= top) {
-            navigator.classList.remove("nav-fixed");
+            nav.classList.remove("nav-fixed");
         } else {
-            navigator.classList.add("nav-fixed");
+            nav.classList.add("nav-fixed");
         }
     });
 });
