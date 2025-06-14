@@ -9,8 +9,8 @@ Object.freeze(pages);
 document.addEventListener("DOMContentLoaded", () => {
     document.head.innerHTML += `
     <style>
-        .nav {
-            pposition: fixed;
+        #nav {
+            position: fixed;
             top: 0;
             width: 100%;
             height: 80px;
@@ -38,14 +38,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.body.insertBefore(navigator, document.body.firstChild);
 
+    let lastY = window.scrollY;
     window.addEventListener("scroll", () => {
-        console.log("scroll");
+        const currentY = window.scrollY;
         const nav = document.getElementById("nav");
         const top = nav.offsetTop;
-        if (window.scrollY >= top) {
+        if (currentY > lastY) {
             nav.classList.remove("nav-hide");
+            document.body.style.paddingTop = "0";
         } else {
             nav.classList.add("nav-hide");
+            document.body.style.paddingTop = "80px";
         }
+
+        lastY = currentY;
     });
 });
