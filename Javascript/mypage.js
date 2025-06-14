@@ -46,7 +46,6 @@ function getUserData(id, pw) {
             })
             .then((response) => {
                 if (response.ok) {
-                    loginForm.hidden = true;
                     response.json().then(data => {
                         writeItems(data);
                         if (remember) {
@@ -65,26 +64,23 @@ function getUserData(id, pw) {
     });
 }
 
-function getProductData()
-{
-    fetch(api + "product.php",
-        {
-            method: "GET"
-        })
-        .then((response) => {
-            if(response.ok) {
-                response.json().then(data => {
-                    return data;
-                })
-            }
-            else {
-                alert("상품 정보를 가져올 수 없습니다. 나중에 다시 시도해주세요.");
-            }
-        })
+async function getProductData() {
+    const response = await fetch(api + "product.php", {
+        method: "GET"
+    });
+    if (response.ok) {
+        return response.json();
+    } else {
+        alert("상품 정보를 가져올 수 없습니다. 나중에 다시 시도해주세요.");
+        return null;
+    }
 }
 
-function writeItems(items) {
-    products = getProductData();
+async function writeItems(items) {
+    document.getElementById("page").hidden = true;
+
+    const products = await getProductData();
+    if (!products) return;
 
     console.log(products);
 
