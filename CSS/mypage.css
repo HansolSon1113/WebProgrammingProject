@@ -140,6 +140,11 @@
     gap: 10%;
 }
 
+.result-row h2 {
+    word-break: keep-all;
+    overflow-wrap: normal;
+}
+
 .result-row p {
     width: 15%;
 }
