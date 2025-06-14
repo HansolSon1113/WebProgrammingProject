@@ -4,8 +4,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const credential = getCredentials();
     if (credential) {
         const { id, pw } = credential;
-        getUserData(id, pw);
-        return;
+        if (id && pw) {
+            getUserData(id, pw);
+            return;
+        }
     }
 
     const rememberedUsername = localStorage.getItem("rememberedUsername");
