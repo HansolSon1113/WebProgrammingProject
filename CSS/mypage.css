@@ -144,7 +144,10 @@
     display: flex;
     flex-direction: column;
     width: 15%;
-    gap: 10%;
+    gap: 5%;
+}
+
+.result-buttons a {
     text-decoration: none;
     color: navy;
 }
@@ -152,10 +155,11 @@
 .result-buttons button {
     cursor: pointer;
     border: none;
+    color: navy;
     background-color: white;
 }
 
-.result-buttons:hover {
+.result-buttons button:hover {
     color: blue;
 }
 
