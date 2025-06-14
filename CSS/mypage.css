@@ -137,4 +137,10 @@
     justify-content: center;
     text-align: center;
     align-items: center;
+    gap: 15%;
+}
+
+img {
+    width: 30%;
+    height: auto;
 }
