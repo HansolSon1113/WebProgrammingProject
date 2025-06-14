@@ -69,9 +69,8 @@ function getUserData(id, pw) {
 function writeItems(result) {
     const container = document.getElementById("result-container");
     container.hidden = false;
-    console.log(result.result);
     const content = document.getElementById("result");
-    result.forEach(r => {
+    result.content.forEach(r => {
         content.innerHTML += `<div>${r}</div>`;
     });
 }
