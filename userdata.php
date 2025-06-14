@@ -4,6 +4,9 @@ $id = $_POST["id"] ?? null;
 $pw = $_POST["password"] ?? null;
 $productId = $_POST["product_id"] ?? null;
 
+var_dump($id, $pw, $productId);
+
+
 if (!$id || !$pw) {
     http_response_code(400);
     exit;
