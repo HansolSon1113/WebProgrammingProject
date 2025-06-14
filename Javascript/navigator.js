@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("scroll", () => {
         const currentY = window.scrollY;
 
-        if (currentY < lastY) { //화면을 올렸을때
+        if (currentY < lastY || currentY < 80) { //화면을 올렸을때
             navigator.classList.remove("nav-hide");
         } else {
             navigator.classList.add("nav-hide");
