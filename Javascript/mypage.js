@@ -88,8 +88,11 @@ async function writeItems(items) {
     container.hidden = false;
     const content = document.getElementById("result");
     items.forEach(item => {
+        const product = products[item]
         content.innerHTML += `<div class="result-row">
-                ${products[item]}
+                <img src="${product.img}" alt=${product.name + " 사진"}>
+                <h2>${product.name}</h2>
+                <p>${product.price}</p>
             </div>`;
     });
 }
