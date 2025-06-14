@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const credentials = getCookie("credentials");
-    if (credentials) {
-        const { id, pw } = JSON.parse(credentials);
+    const { id, pw } = getCredentials();
+    if (id && pw) {
         getUserData(id, pw)
         return;
     }
@@ -12,6 +11,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     getUserData();
 });
+
+//참고: https://ko.javascript.info/cookie
+function getCredentials() {
+    const id = document.cookie.match(/(?:^|; )id=([^;]*)/); //찾으려는 쿠키가 중간에 있더라도 검증
+    const pw = document.cookie.match(/(?:^|; )pw=([^;]*)/);
+    return (id && pw) ? [decodeURIComponent(id[1]), decodeURIComponent(pw[1])] : undefined;
+}
 
 function getUserData(id, pw) {
     const api = "http://138.2.120.185/WebProgramming/userdata.php"
@@ -28,11 +34,6 @@ function getUserData(id, pw) {
         }
         const remember = document.getElementById("remember").checked;
 
-        if (!username || !password) {
-            alert("아이디/비밀번호를 모두 입력하세요.");
-            return;
-        }
-
         fetch(api,
             {
                 method: "POST",
@@ -45,10 +46,9 @@ function getUserData(id, pw) {
                 console.log(response.status);
                 if (response.status == 200) {
                     writeItems(response.json());
-                    if(remember)
-                    {
+                    if (remember) {
                         localStorage.setrItem("rememberedUsername", username);
-                        document.cooke = `id=${id}, pw=${pw}; path=/`
+                        document.cooke = `id=${encodeURIComponent(id)}, pw=${encodeURIComponent(pw)}; path=/`
                     }
                 }
                 else if (response.status == 401) {
