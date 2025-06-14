@@ -4,10 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const credential = getCredentials();
     if (credential) {
         const { id, pw } = credential;
-        if (id && pw) {
-            getUserData(id, pw);
-            return;
-        }
+        getUserData(id, pw);
+        return;
     }
 
     const rememberedUsername = localStorage.getItem("rememberedUsername");
@@ -16,8 +14,8 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("remember").checked = true;
     }
 
-    id = document.getElementById("input-username").value.trim();
-    pw = document.getElementById("input-password").value.trim();
+    const id = document.getElementById("input-username").value.trim();
+    const pw = document.getElementById("input-password").value.trim();
 
     const loginForm = document.querySelector("form");
     loginForm.addEventListener("submit", function (event) {
