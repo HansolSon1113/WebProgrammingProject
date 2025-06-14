@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function getCredentials() {
     const id = document.cookie.match(/(?:^|; )id=([^;]*)/); //찾으려는 쿠키가 중간에 있더라도 검증
     const pw = document.cookie.match(/(?:^|; )pw=([^;]*)/);
+    console.log(id);
     return (id && pw) ? {
         id: decodeURIComponent(id[1]),
         pw: decodeURIComponent(pw[1])
