@@ -2,10 +2,9 @@ const api = "http://138.2.120.185/WebProgrammingProject/"
 
 document.addEventListener("DOMContentLoaded", function () {
     const credential = getCredentials();
-    console.log(credential);
     if (credential) {
-        ({ id, pw } = credential);
-        getUserData(id, pw)
+        const { id, pw } = credential;
+        getUserData(id, pw);
         return;
     }
     const rememberedUsername = localStorage.getItem("rememberedUsername");
