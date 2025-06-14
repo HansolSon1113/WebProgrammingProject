@@ -50,11 +50,13 @@ function getUserData(id, pw) {
                 console.log(response.status);
                 if (response.ok) {
                     loginForm.hidden = true;
-                    writeItems(response.json());
-                    if (remember) {
-                        localStorage.setrItem("rememberedUsername", username);
-                        document.cooke = `id=${encodeURIComponent(id)}, pw=${encodeURIComponent(pw)}; path=/`
-                    }
+                    response.json().then(data => {
+                        writeItems(data);
+                        if (remember) {
+                            localStorage.setItem("rememberedUsername", id);
+                            document.cookie = `id=${encodeURIComponent(id)}; pw=${encodeURIComponent(pw)}; path=/`;
+                        }
+                    });
                 }
                 else if (response.status == 401) {
                     alert("비밀번호를 확인해주세요.");
@@ -64,16 +66,11 @@ function getUserData(id, pw) {
                 }
             });
     });
-}
-
-function writeItems(result) {
+function writeItems(items) {
     const container = document.getElementById("result-container");
     container.hidden = false;
     const content = document.getElementById("result");
-    console.log(result.content);
-    console.log(result);
-    console.log(result.body);
-    result.content.forEach(r => {
-        content.innerHTML += `<div>${r}</div>`;
+    items.forEach(item => {
+        content.innerHTML += `<div>${item}</div>`;
     });
 }
