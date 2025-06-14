@@ -140,11 +140,16 @@
     gap: 15%;
 }
 
+.result-buttons {
+    display: flex;
+    flex-direction: column;
+}
+
 img {
     width: 30%;
     height: auto;
 }
 
 #result-container {
-    height: calc(100vh - 80px);
+    height: calc(100vh - 80px - 10rem);
 }
