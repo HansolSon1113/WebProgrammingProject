@@ -21,14 +21,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.body.insertBefore(navigator, document.body.firstChild);
 
-    navigator.addEventListener("scroll", () => {
+    window.addEventListener("scroll", () => {
         console.log("scroll");
         const top = navigator.offsetTop;
-        if(window.scrollY >= top) {
+        if (window.scrollY >= top) {
             navigator.classList.remove("nav-fixed");
-        }
-        else {
+        } else {
             navigator.classList.add("nav-fixed");
         }
-    })
+    });
 });
