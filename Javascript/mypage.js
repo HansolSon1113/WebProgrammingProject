@@ -84,10 +84,17 @@ function getProductData()
 }
 
 function writeItems(items) {
+    products = getProductData();
+    if(!products) return;
+
+    console.log(products);
+
     const container = document.getElementById("result-container");
     container.hidden = false;
     const content = document.getElementById("result");
     items.forEach(item => {
-        content.innerHTML += `<div>${item}</div>`;
+        content.innerHTML += `<div class="result-row">
+                ${products[item]}
+            </div>`;
     });
 }

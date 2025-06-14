@@ -130,3 +130,11 @@
 #links a:hover {
     background-color: rgba(42, 42, 39, 1);
 }
+
+.result-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
