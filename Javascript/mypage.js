@@ -37,6 +37,12 @@ function getCredentials() {
 
 function getUserData(id, pw) {
     const remember = document.getElementById("remember").checked;
+    if (remember) {
+        localStorage.setItem("rememberedUsername", id);
+    }
+    else {
+        localStorage.clear();
+    }
 
     fetch(api + "userdata.php",
         {
@@ -50,14 +56,8 @@ function getUserData(id, pw) {
             if (response.ok) {
                 response.json().then(data => {
                     writeItems(data);
-                    if (remember) {
-                        localStorage.setItem("rememberedUsername", id);
-                        document.cookie = `id=${encodeURIComponent(id)}; path=/`;
-                        document.cookie = `pw=${encodeURIComponent(pw)}; path=/`
-                    }
-                    else {
-                        localStorage.clear();
-                    }
+                    document.cookie = `id=${encodeURIComponent(id)}; path=/`;
+                    document.cookie = `pw=${encodeURIComponent(pw)}; path=/`
                 });
             }
             else if (response.status == 401) {
