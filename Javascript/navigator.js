@@ -42,14 +42,11 @@ document.addEventListener("DOMContentLoaded", () => {
     let lastY = window.scrollY;
     window.addEventListener("scroll", () => {
         const currentY = window.scrollY;
-        const nav = document.getElementById("nav");
-        const top = nav.offsetTop;
-        if (currentY > lastY) {
-            nav.classList.remove("nav-hide");
-            document.body.style.paddingTop = "0";
+
+        if (currentY < lastY) {
+            navigator.classList.remove("nav-hide");
         } else {
-            nav.classList.add("nav-hide");
-            document.body.style.paddingTop = "80px";
+            navigator.classList.add("nav-hide");
         }
 
         lastY = currentY;
