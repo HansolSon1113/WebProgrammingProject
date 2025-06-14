@@ -17,8 +17,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //참고: https://ko.javascript.info/cookie
 function getCredentials() {
-    const id = document.cookie.match(/(?:^|; )id=([^;]*)/); //찾으려는 쿠키가 중간에 있더라도 검증
-    const pw = document.cookie.match(/(?:^|; )pw=([^;]*)/);
+    const id = document.cookie.match(/(?<=^|;\s*)id=([^;]*)/); // id 값만 정확히 추출
+    const pw = document.cookie.match(/(?<=^|;\s*)pw=([^;]*)/);
     console.log(id);
     return (id && pw) ? {
         id: decodeURIComponent(id[1]),
