@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const credential = getCredentials();
     if (credential) {
-        ({id, pw} = credential);
+        ({ id, pw } = credential);
         getUserData(id, pw)
         return;
     }
@@ -66,6 +66,8 @@ function getUserData(id, pw) {
                 }
             });
     });
+}
+
 function writeItems(items) {
     const container = document.getElementById("result-container");
     container.hidden = false;
