@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("scroll");
         const nav = document.getElementById("nav");
         const top = nav.offsetTop;
-        if (window.scrollY <= top) {
+        if (window.scrollY < top) {
             nav.classList.remove("nav-fixed");
         } else {
             nav.classList.add("nav-fixed");

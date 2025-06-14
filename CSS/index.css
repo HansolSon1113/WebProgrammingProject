@@ -160,7 +160,8 @@ body {
     border: 10px solid rgba(0, 0, 0, 0.2);
 }
 
-.story-content-left, .story-content-right {
+.story-content-left,
+.story-content-right {
     display: flex;
     flex-direction: row;
     gap: 20%;
@@ -201,7 +202,7 @@ body {
 
 .grid {
     display: grid;
-    
+
 }
 
 #univ {
@@ -309,4 +310,9 @@ body {
 
 #bye img {
     width: 30%;
+}
+
+.nav-fixed {
+    position: fixed;
+    top: 0;
 }
