@@ -137,7 +137,11 @@
     justify-content: center;
     text-align: center;
     align-items: center;
-    gap: 10%;
+    gap: 15%;
+}
+
+.result-row p {
+    width: 15%;
 }
 
 .result-buttons {
