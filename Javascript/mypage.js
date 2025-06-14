@@ -49,6 +49,7 @@ function getUserData(id, pw) {
             .then((response) => {
                 console.log(response.status);
                 if (response.ok) {
+                    console.log("A");
                     writeItems(response.json());
                     if (remember) {
                         localStorage.setrItem("rememberedUsername", username);
