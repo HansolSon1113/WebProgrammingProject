@@ -7,6 +7,7 @@ const pages = {
 Object.freeze(pages);
 
 document.addEventListener("DOMContentLoaded", () => {
+    document.body.style.paddingTop = "80px";
     document.head.innerHTML += `
     <style>
         #nav {
