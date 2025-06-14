@@ -14,11 +14,10 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("remember").checked = true;
     }
 
-    const id = document.getElementById("input-username").value.trim();
-    const pw = document.getElementById("input-password").value.trim();
-
     const loginForm = document.querySelector("form");
     loginForm.addEventListener("submit", function (event) {
+        const id = document.getElementById("input-username").value.trim();
+        const pw = document.getElementById("input-password").value.trim();
         event.preventDefault();
         getUserData(id, pw);
     });
