@@ -1,16 +1,5 @@
 <?php
 
-register_shutdown_function(function() use (&$stmtg, &$stmtu, &$stmti, &$stmtf, $con) {
-    foreach (['stmtg','stmtu','stmti','stmtf'] as $name) {
-        if (isset($$name) && $$name instanceof mysqli_stmt) {
-            $$name->close();
-        }
-    }
-    if ($con instanceof mysqli) {
-        $con->close();
-    }
-});
-
 $id = $_POST["id"] ?? null;
 $pw = $_POST["password"] ?? null;
 $productId = $_POST["product_id"] ?? null;
@@ -92,5 +81,16 @@ if($stmtf->fetch())
 
 http_response_code(404);
 exit;
+
+register_shutdown_function(function() use (&$stmtg, &$stmtu, &$stmti, &$stmtf, $con) {
+    foreach (['stmtg','stmtu','stmti','stmtf'] as $name) {
+        if (isset($$name) && $$name instanceof mysqli_stmt) {
+            $$name->close();
+        }
+    }
+    if ($con instanceof mysqli) {
+        $con->close();
+    }
+});
 
 ?>
