@@ -35,12 +35,12 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("scroll");
         const nav = document.getElementById("nav");
         const top = nav.offsetTop;
-        if (window.scrollY < top) {
-            nav.classList.remove("nav-fixed");
-            document.body.style.paddingTop = "80px";
-        } else {
+        if (window.scrollY >= top) {
             nav.classList.add("nav-fixed");
             document.body.style.paddingTop = "0";
+        } else {
+            nav.classList.remove("nav-fixed");
+            document.body.style.paddingTop = "80px";
         }
     });
 });
