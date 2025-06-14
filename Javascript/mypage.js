@@ -50,7 +50,7 @@ function getUserData(id, pw) {
                 console.log(response.status);
                 if (response.ok) {
                     loginForm.hidden = true;
-                    writeItems(response);
+                    writeItems(response.json());
                     if (remember) {
                         localStorage.setrItem("rememberedUsername", username);
                         document.cooke = `id=${encodeURIComponent(id)}, pw=${encodeURIComponent(pw)}; path=/`
