@@ -60,7 +60,7 @@
       margin: 20px 0;
     }
 
-    .buy-button {
+    #buy-button {
       padding: 12px 20px;
       font-size: 16px;
       background-color: #457b9d;
@@ -72,14 +72,90 @@
       transition: background-color 0.3s ease;
     }
 
-    .buy-button:hover {
+    #buy-button:hover {
       background-color: #1d3557;
     }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .close-button {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    #login-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+      overflow: auto;
+    }
+
+    .login-modal-content {
+      background-color: #ffffff;
+      padding: 40px 30px;
+      width: 400px;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+      position: relative;
+      text-align: center;
+      animation: fadeIn 0.3s ease;
+    }
+    
+    .login-modal-content input {
+      display: block;
+      width: 100%;
+      padding: 12px 15px;
+      margin-bottom: 15px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-sizing: border-box;
+      transition: border 0.2s ease;
+    }
+
+    .login-modal-content button {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      background-color: #457b9d;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .login-modal-content button:hover {
+      background-color: #1d3557;
+    }    
+
   </style>
 </head>
 <body>
   <div class="detail-container" id="product-detail">
     로딩 중...
+  </div>
+
+  <div id="login-modal" class="hidden">
+    <div class="login-modal-content">
+      <span class="close-button">&times;</span>
+      <h3>로그인</h3>
+      <input id="login-id" type="text" placeholder="학번" style="width: 100%; margin-bottom: 10px;">
+      <input id="login-pw" type="password" placeholder="비밀번호" style="width: 100%; margin-bottom: 10px;">
+      <button id="login-submit" style="width: 100%; padding: 8px;">확인</button>
+    </div>
   </div>
 
   <script>
@@ -107,14 +183,56 @@
               <p class="price">${product.가격.toLocaleString()}원</p>
               <p><strong>상세설명:<br></strong> ${product.상세설명}</p>
             </div>
-            <button class="buy-button">구매하기</button>
+            <button id="buy-button">구매하기</button>
           </div>
         `;
+
+        const buyBtn = document.getElementById('buy-button');
+
+        buyBtn.addEventListener('click', () => {
+          loginModal.classList.remove('hidden');
+        })      
+
       })
+
       .catch(err => {
         document.getElementById('product-detail').innerHTML = '<p>데이터를 불러오지 못했습니다.</p>';
         console.error(err);
       });
+
+    const loginModal = document.getElementById('login-modal');
+    const loginSub = document.getElementById('login-submit');
+    const loginCloseBtn = document.getElementsByClassName('close-button')[0];
+
+
+    loginModal.addEventListener('click', (e) => {
+      if (e.target === loginModal) {
+        loginModal.classList.add('hidden');
+      }
+    }) 
+
+    loginCloseBtn.addEventListener('click', () => {
+      loginModal.classList.add('hidden');
+    })
+
+    loginSub.addEventListener('click', () => {
+      const loginId = document.getElementById('login-id');
+      const loginPw = document.getElementById('login-pw');
+
+      if (!loginId.textContent || !loginPw.textContent) {
+        alert("학번과 비밀번호를 모두 입력해주세요.");
+        return;
+      }
+
+      document.cookie = `id=${loginId}; max-age=86400`;
+      document.cookie = `pw=${loginPw}; max-age=86400`;
+
+      window.location.href = 'mypage.html';
+    })
+
+
+
+
   </script>
 </body>
 </html>

@@ -153,8 +153,84 @@
       cursor: pointer;
     }
 
+    .modal-buttons {
+      margin-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .modal-buttons button {
+      flex: 1;
+      padding: 10px 15px;
+      border: none;
+      background-color: #1976d2;
+      color: white;
+      font-size: 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .modal-buttons button:hover {
+      background-color: #145ea8;
+    }
+
     #modal-price, #modal-name {
       text-align: center;
+    }
+
+    #login-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+      overflow: auto;
+    }
+
+    .login-modal-content {
+      background-color: #ffffff;
+      padding: 40px 30px;
+      width: 400px;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+      position: relative;
+      text-align: center;
+      animation: fadeIn 0.3s ease;
+    }
+    
+    .login-modal-content input {
+      display: block;
+      width: 100%;
+      padding: 12px 15px;
+      margin-bottom: 15px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-sizing: border-box;
+      transition: border 0.2s ease;
+    }
+
+    .login-modal-content button {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      background-color: #457b9d;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .login-modal-content button:hover {
+      background-color: #1d3557;
     }
 
   </style>
@@ -178,8 +254,20 @@
     <img id="modal-img" src="" alt="">
     <h2 id="modal-name"></h2>
     <p id="modal-price"></p>
-    <p id="modal-detailBtn"></p>
-    <p id="modal-buyBtn"></p>
+
+    <div class="modal-buttons">
+      <button id="detail-button">상세보기</button>
+      <button id="buy-button">구매하기</button>
+    </div>
+  </div>
+  <div id="login-modal" class="hidden">
+    <div class="login-modal-content">
+      <span class="close-button">&times;</span>
+      <h3>로그인</h3>
+      <input id="login-id" type="text" placeholder="학번" style="width: 100%; margin-bottom: 10px;">
+      <input id="login-pw" type="password" placeholder="비밀번호" style="width: 100%; margin-bottom: 10px;">
+      <button id="login-submit" style="width: 100%; padding: 8px;">확인</button>
+    </div>
   </div>
 </div>
 
@@ -192,8 +280,13 @@
     const modalImg = document.getElementById('modal-img');
     const modalName = document.getElementById('modal-name');
     const modalPrice = document.getElementById('modal-price');
-    const modalCategory = document.getElementById('modal-category');
-    const closeBtn = document.querySelector('.close-button');
+    const closeBtn = document.getElementsByClassName('close-button')[0];
+    const detailBtn = document.getElementById('detail-button');
+    const buyBtn = document.getElementById('buy-button');
+
+    const loginModal = document.getElementById('login-modal');
+    const loginSub = document.getElementById('login-submit');
+    const loginCloseBtn = document.getElementsByClassName('close-button')[1];
 
     let isMobile = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     console.log(navigator.userAgent);
@@ -204,9 +297,6 @@
     else {
       container.classList.add('product-grid');
     }
-    window.addEventListener('DOMContentLoaded', () => {
-      modal.classList.add('hidden');
-    });    
     
     //json파일 가져오기
     fetch('test.json')
@@ -265,19 +355,55 @@
             modalName.textContent = product.상품명;
             modalPrice.textContent = `${product.가격}원`;
             modal.classList.remove('hidden');
-          });          
+
+            detailBtn.onclick = () => {
+              window.open(`detail.html?id=${product.상품번호}`, '_blank');
+            };
+
+          }); 
         })
-        closeBtn.addEventListener('click', () => {
-            modal.classList.add('hidden');
-          })
-          modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-              modal.classList.add('hidden');
-            }
-          })  
       })
     .catch(err => console.error('실패', err));
     
+    closeBtn.addEventListener('click', () => {
+      modal.classList.add('hidden');
+    })
+
+    loginCloseBtn.addEventListener('click', () => {
+      loginModal.classList.add('hidden');
+    })
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.add('hidden');
+      }
+    })
+
+    buyBtn.addEventListener('click', () => {
+      loginModal.classList.remove('hidden');
+    })
+
+    loginModal.addEventListener('click', (e) => {
+      if (e.target === loginModal) {
+        loginModal.classList.add('hidden');
+      }
+    })  
+
+    loginSub.addEventListener('click', () => {
+      const loginId = document.getElementById('login-id');
+      const loginPw = document.getElementById('login-pw');
+
+      if (!loginId.textContent || !loginPw.textContent) {
+        alert("학번과 비밀번호를 모두 입력해주세요!");
+        return;
+      }
+
+      document.cookie = `id=${loginId}; max-age=86400`;
+      document.cookie = `pw=${loginPw}; max-age=86400`;
+
+      window.location.href = 'mypage.html';
+    })
+
 
   </script>
 
