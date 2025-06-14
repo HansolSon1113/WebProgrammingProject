@@ -311,8 +311,3 @@ body {
 #bye img {
     width: 30%;
 }
-
-.nav-fixed {
-    position: fixed;
-    top: 0;
-}

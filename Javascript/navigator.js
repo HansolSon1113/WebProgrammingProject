@@ -7,6 +7,15 @@ const pages = {
 Object.freeze(pages);
 
 document.addEventListener("DOMContentLoaded", () => {
+    document.head.innerHTML += `
+    <style>
+        .nav-fixed {
+            position: fixed;
+            top: 0;
+        }
+    </style>
+    `
+
     const height = 80;
     const navigator = document.createElement("section");
     navigator.id = "nav";
