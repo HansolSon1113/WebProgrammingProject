@@ -90,7 +90,7 @@ async function writeItems(items) {
     items.forEach(item => {
         const product = products[item]
         content.innerHTML += `<div class="result-row">
-                <img src="${product.img}" alt=${product.name + " 사진"}>
+                <img src="Assets/${product.img}" alt=${product.name + " 사진"}>
                 <h2>${product.name}</h2>
                 <p>${product.price}</p>
             </div>`;
