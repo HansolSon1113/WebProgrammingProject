@@ -85,7 +85,6 @@ function getProductData()
 
 function writeItems(items) {
     products = getProductData();
-    if(!products) return;
 
     console.log(products);
 
