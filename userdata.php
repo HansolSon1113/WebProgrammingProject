@@ -17,7 +17,7 @@ if (mysqli_connect_errno()) {
 }
 
 if ($productId) {
-    $sqlg = "SELECT password, items FROM user WHERE id = ?";
+    $sqlg = "SELECT password, items FROM `user` WHERE id = ?";
     $stmtg = $con->prepare($sqlg);
     $stmtg->bind_param('s', $id);
     $stmtg->execute();
@@ -36,7 +36,7 @@ if ($productId) {
         $existing[] = $productId;
         $newJson = json_encode($existing, JSON_UNESCAPED_UNICODE);
 
-        $sqlu = "UPDATE user SET items = ? WHERE id = ?";
+        $sqlu = "UPDATE `user` SET items = ? WHERE id = ?";
         $stmtu = $con->prepare($sqlu);
         $stmtu->bind_param('ss', $newJson, $id);
         $stmtu->execute();
@@ -48,9 +48,9 @@ if ($productId) {
     $initial = [$productId];
     $initialJson = json_encode($initial, JSON_UNESCAPED_UNICODE);
 
-    $sqli = "INSERT INTO user (id, password, items) VALUES (?, ?, ?)";
+    $sqli = "INSERT INTO `user` (id, password, items) VALUES (?, ?, ?)";
     $stmti = $con->prepare($sqli);
-    $stmti->bind_param('sss', $id, $password, $initialJson);
+    $stmti->bind_param('sss', $id, $pw, $initialJson);
     $stmti->execute();
 
     http_response_code(200);
@@ -60,7 +60,7 @@ if ($productId) {
     exit;
 }
 
-$sqlf = "SELECT password, items FROM user WHERE id = ?";
+$sqlf = "SELECT password, items FROM `user` WHERE id = ?";
 $stmtf = $con->prepare($sqlf);
 $stmtf->bind_param("s", $id);
 $stmtf->execute();
@@ -83,9 +83,9 @@ http_response_code(404);
 
 foreach(["stmtg", "stmtu", "stmti", "stmtf"] as $stmt)
 {
-    if(isset($$s) && $$s instanceof mysqli_stmt)
+    if(isset($$stmt) && $$stmt instanceof mysqli_stmt)
     {
-        $$s->close();
+        $$stmt->close();
     }
 }
 $con->close();
