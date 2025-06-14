@@ -144,3 +144,7 @@ img {
     width: 30%;
     height: auto;
 }
+
+#result-container {
+    height: calc(100vh - 80px);
+}
