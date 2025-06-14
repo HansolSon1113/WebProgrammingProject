@@ -17,6 +17,7 @@ html {
 }
 
 body {
+    padding-top: 80px;
     font-family: "Ownglyph_ParkDaHyun";
     text-align: center;
     word-break: keep-all;
