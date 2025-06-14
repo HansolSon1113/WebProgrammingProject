@@ -1,3 +1,5 @@
+const api = "http://138.2.120.185/WebProgrammingProject/"
+
 document.addEventListener("DOMContentLoaded", function () {
     const credential = getCredentials();
     if (credential) {
@@ -24,11 +26,7 @@ function getCredentials() {
 }
 
 function getUserData(id, pw) {
-    const api = "http://138.2.120.185/WebProgrammingProject/userdata.php"
-
     const loginForm = document.querySelector("form");
-    loginForm.method = "post";
-    loginForm.action = api;
     loginForm.addEventListener("submit", function (event) {
         event.preventDefault();
 
@@ -38,7 +36,7 @@ function getUserData(id, pw) {
         }
         const remember = document.getElementById("remember").checked;
 
-        fetch(api,
+        fetch(api + "userdata.php",
             {
                 method: "POST",
                 headers: {
@@ -47,7 +45,6 @@ function getUserData(id, pw) {
                 body: new URLSearchParams({ id: id, password: pw })
             })
             .then((response) => {
-                console.log(response.status);
                 if (response.ok) {
                     loginForm.hidden = true;
                     response.json().then(data => {
@@ -66,6 +63,24 @@ function getUserData(id, pw) {
                 }
             });
     });
+}
+
+function getProductData()
+{
+    fetch(api + "product.php",
+        {
+            method: "GET"
+        })
+        .then((response) => {
+            if(response.ok) {
+                response.json().then(data => {
+                    return data;
+                })
+            }
+            else {
+                alert("상품 정보를 가져올 수 없습니다. 나중에 다시 시도해주세요.");
+            }
+        })
 }
 
 function writeItems(items) {
