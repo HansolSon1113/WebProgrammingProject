@@ -41,10 +41,10 @@ function getUserData(id, pw) {
         fetch(api,
             {
                 method: "POST",
-                body: JSON.stringify({
-                    "id": id,
-                    "password": pw,
-                })
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+                },
+                body: new URLSearchParams({ id: id, password: pw })
             })
             .then((response) => {
                 console.log(response.status);
