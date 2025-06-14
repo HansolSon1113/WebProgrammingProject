@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const { id, pw } = getCredentials();
-    if (id && pw) {
+    const credential = getCredentials();
+    if (credential) {
+        ({id, pw} = credential);
         getUserData(id, pw)
         return;
     }
@@ -53,6 +54,7 @@ function getUserData(id, pw) {
                         localStorage.setrItem("rememberedUsername", username);
                         document.cooke = `id=${encodeURIComponent(id)}, pw=${encodeURIComponent(pw)}; path=/`
                     }
+                    loginForm.hidden = true;
                 }
                 else if (response.status == 401) {
                     alert("비밀번호를 확인해주세요.");
@@ -65,7 +67,9 @@ function getUserData(id, pw) {
 }
 
 function writeItems(result) {
-    const content = document.getElementById("page-content");
+    const content = document.getElementById("result");
+    content.hidden = false;
+
 
     content.innerHTML = result;
 }
