@@ -44,10 +44,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const top = nav.offsetTop;
         if (window.scrollY >= top) {
             nav.classList.remove("nav-hide");
-            document.body.style.paddingTop = "0";
         } else {
             nav.classList.add("nav-hide");
-            document.body.style.paddingTop = "80px";
         }
     });
 });
