@@ -146,6 +146,11 @@
     width: 10%;
 }
 
+.result-buttons button {
+    border: none;
+    background-color: white;
+}
+
 img {
     width: 30%;
     height: auto;
