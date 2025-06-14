@@ -98,7 +98,7 @@ async function writeItems(items) {
                 <h2>${product.name}</h2>
                 <p>${product.price}원</p>
                 <div class="result-buttons">
-                    <a href="" target="_blank">상세보기</a>
+                    <a href="detail.html?id=${item}" target="_blank">상세보기</a>
                     <button id="refund">구매 취소</button>
                 </div>
             </li>`;
