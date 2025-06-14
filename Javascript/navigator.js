@@ -9,10 +9,17 @@ Object.freeze(pages);
 document.addEventListener("DOMContentLoaded", () => {
     document.head.innerHTML += `
     <style>
-        .nav-fixed {
-            position: fixed;
+        .nav {
+            pposition: fixed;
             top: 0;
             width: 100%;
+            height: 80px;
+            transform: translateY(0);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .nav-hide {
+            transform: translateY(-100%);
         }
     </style>
     `
@@ -36,10 +43,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const nav = document.getElementById("nav");
         const top = nav.offsetTop;
         if (window.scrollY >= top) {
-            nav.classList.add("nav-fixed");
+            nav.classList.remove("nav-hide");
             document.body.style.paddingTop = "0";
         } else {
-            nav.classList.remove("nav-fixed");
+            nav.classList.add("nav-hide");
             document.body.style.paddingTop = "80px";
         }
     });
