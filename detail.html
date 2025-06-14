@@ -216,21 +216,19 @@
     })
 
     loginSub.addEventListener('click', () => {
-      const loginId = document.getElementById('login-id');
-      const loginPw = document.getElementById('login-pw');
+      const loginId = document.getElementById('login-id').value.trim();
+      const loginPw = document.getElementById('login-pw').value.trim();
 
-      if (!loginId.textContent || !loginPw.textContent) {
-        alert("학번과 비밀번호를 모두 입력해주세요.");
+      if (!loginId || !loginPw) {
+        alert("학번과 비밀번호를 모두 입력해주세요!");
         return;
       }
 
-      document.cookie = `id=${loginId}; max-age=86400`;
-      document.cookie = `pw=${loginPw}; max-age=86400`;
+      document.cookie = `id=${loginId}`;
+      document.cookie = `pw=${loginPw}`;
 
       window.location.href = 'mypage.html';
     })
-
-
 
 
   </script>
