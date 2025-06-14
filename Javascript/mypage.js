@@ -50,7 +50,8 @@ function getUserData(id, pw) {
                         writeItems(data);
                         if (remember) {
                             localStorage.setItem("rememberedUsername", id);
-                            document.cookie = `id=${encodeURIComponent(id)}; pw=${encodeURIComponent(pw)}; path=/`;
+                            document.cookie = `id=${encodeURIComponent(id)}; path=/`;
+                            document.cookie = `pw=${encodeURIComponent(pw)}; path=/`
                         }
                     });
                 }
@@ -77,7 +78,7 @@ async function getProductData() {
 }
 
 async function writeItems(items) {
-    document.getElementById("page").hidden = true;
+    document.getElementById("page").style.display = "none";
 
     const products = await getProductData();
     if (!products) return;
