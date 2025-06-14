@@ -24,7 +24,7 @@ function getCredentials() {
 }
 
 function getUserData(id, pw) {
-    const api = "http://138.2.120.185/WebProgramming/userdata.php"
+    const api = "http://138.2.120.185/WebProgrammingProject/userdata.php"
 
     const loginForm = document.querySelector("form");
     loginForm.method = "post";
