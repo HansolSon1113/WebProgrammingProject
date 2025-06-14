@@ -4,9 +4,6 @@ $id = $_POST["id"] ?? null;
 $pw = $_POST["password"] ?? null;
 $productId = $_POST["product_id"] ?? null;
 
-var_dump($id, $pw, $productId);
-
-
 if (!$id || !$pw) {
     http_response_code(400);
     exit;
@@ -26,7 +23,7 @@ if ($productId) {
     $stmtg->execute();
     $stmtg->bind_result($dbPw, $dbItems);
 
-    if ($stmtf->fetch()) {
+    if ($stmtg->fetch()) {
         if ($pw !== $dbPw) {
             http_response_code(401);
             exit;
@@ -67,7 +64,7 @@ $sqlf = "SELECT password, items FROM `user` WHERE id = ?";
 $stmtf = $con->prepare($sqlf);
 $stmtf->bind_param("s", $id);
 $stmtf->execute();
-$stmtf->bind_result($dbPW, $dbItems);
+$stmtf->bind_result($dbPw, $dbItems);
 
 if($stmtf->fetch())
 {

@@ -41,14 +41,14 @@ function getUserData(id, pw) {
         fetch(api,
             {
                 method: "POST",
-                body: {
+                body: JSON.stringify({
                     "id": id,
                     "password": pw,
-                }
+                })
             })
             .then((response) => {
                 console.log(response.status);
-                if (response.status == 200) {
+                if (response.ok) {
                     writeItems(response.json());
                     if (remember) {
                         localStorage.setrItem("rememberedUsername", username);
