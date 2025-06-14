@@ -260,6 +260,7 @@
       <button id="buy-button">구매하기</button>
     </div>
   </div>
+  <!--로그인 창-->
   <div id="login-modal" class="hidden">
     <div class="login-modal-content">
       <span class="close-button">&times;</span>
@@ -272,6 +273,7 @@
 </div>
 
   <script>
+    //변수선언하기
     const container = document.getElementById('product-list');
 
     const infoBox = document.getElementById('product-info');
@@ -365,6 +367,7 @@
       })
     .catch(err => console.error('실패', err));
     
+    //모달창 끄고키는 이벤트들
     closeBtn.addEventListener('click', () => {
       modal.classList.add('hidden');
     })
@@ -388,18 +391,18 @@
         loginModal.classList.add('hidden');
       }
     })  
-
+    //로그인 정보 제출
     loginSub.addEventListener('click', () => {
-      const loginId = document.getElementById('login-id');
-      const loginPw = document.getElementById('login-pw');
+      const loginId = document.getElementById('login-id').value.trim();
+      const loginPw = document.getElementById('login-pw').value.trim();
 
-      if (!loginId.textContent || !loginPw.textContent) {
+      if (!loginId || !loginPw) {
         alert("학번과 비밀번호를 모두 입력해주세요!");
         return;
       }
 
-      document.cookie = `id=${loginId}; max-age=86400`;
-      document.cookie = `pw=${loginPw}; max-age=86400`;
+      document.cookie = `id=${loginId}`;
+      document.cookie = `pw=${loginPw}`;
 
       window.location.href = 'mypage.html';
     })
