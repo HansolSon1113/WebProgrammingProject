@@ -1,5 +1,16 @@
 <?php
 
+register_shutdown_function(function() use (&$stmtg, &$stmtu, &$stmti, &$stmtf, $con) {
+    foreach (['stmtg','stmtu','stmti','stmtf'] as $name) {
+        if (isset($$name) && $$name instanceof mysqli_stmt) {
+            $$name->close();
+        }
+    }
+    if ($con instanceof mysqli) {
+        $con->close();
+    }
+});
+
 $id = $_POST["id"] ?? null;
 $pw = $_POST["password"] ?? null;
 $productId = $_POST["product_id"] ?? null;
@@ -21,15 +32,15 @@ if ($productId) {
     $stmtg = $con->prepare($sqlg);
     $stmtg->bind_param('s', $id);
     $stmtg->execute();
-    $resultg = $stmtg->get_result();
+    $stmtg->bind_result($dbPw, $dbItems);
 
-    if ($row = $resultg->fetch_assoc()) {
-        if ($pw !== $row['password']) {
+    if ($stmtf->fetch()) {
+        if ($pw !== $dbPw) {
             http_response_code(401);
             exit;
         }
 
-        $existing = json_decode($row['items'], true);
+        $existing = json_decode($dbItems, true);
         if (!is_array($existing)) {
             $existing = [];
         }
@@ -64,30 +75,22 @@ $sqlf = "SELECT password, items FROM `user` WHERE id = ?";
 $stmtf = $con->prepare($sqlf);
 $stmtf->bind_param("s", $id);
 $stmtf->execute();
-$resultf = $stmtf->get_result();
+$stmtf->bind_result($dbPW, $dbItems);
 
-if($row = $resultf->fetch_assoc())
+if($stmtf->fetch())
 {
-    if($pw != $row["password"])
+    if($pw != $dbPw)
     {
         http_response_code(401);
         exit;
     }
 
     http_response_code(200);
-    echo $row["items"];
+    echo $dbItems;
     exit;
 }
 
 http_response_code(404);
-
-foreach(["stmtg", "stmtu", "stmti", "stmtf"] as $stmt)
-{
-    if(isset($$stmt) && $$stmt instanceof mysqli_stmt)
-    {
-        $$stmt->close();
-    }
-}
-$con->close();
+exit;
 
 ?>
