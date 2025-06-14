@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
             transition: transform 0.3s ease-in-out;
         }
 
-        .nav-hide {
+        #nav .nav-hide {
             transform: translateY(-100%);
         }
     </style>
