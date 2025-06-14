@@ -144,7 +144,7 @@
     display: flex;
     flex-direction: column;
     width: 15%;
-    gap: 5%;
+    gap: 20%;
 }
 
 .result-buttons a {
@@ -159,6 +159,7 @@
     background-color: white;
 }
 
+.result-buttons a:hover,
 .result-buttons button:hover {
     color: blue;
 }
