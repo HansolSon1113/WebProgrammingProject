@@ -143,12 +143,19 @@
 .result-buttons {
     display: flex;
     flex-direction: column;
-    width: 10%;
+    width: 15%;
+    gap: 5%;
+    ;
 }
 
 .result-buttons button {
+    cursor: pointer;
     border: none;
     background-color: white;
+}
+
+.result-buttons button:hover {
+    color: blue;
 }
 
 img {
