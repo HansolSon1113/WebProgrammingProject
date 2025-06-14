@@ -55,6 +55,9 @@ function getUserData(id, pw) {
                         document.cookie = `id=${encodeURIComponent(id)}; path=/`;
                         document.cookie = `pw=${encodeURIComponent(pw)}; path=/`
                     }
+                    else {
+                        localStorage.clear();
+                    }
                 });
             }
             else if (response.status == 401) {
