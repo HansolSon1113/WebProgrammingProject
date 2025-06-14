@@ -7,12 +7,21 @@ document.addEventListener("DOMContentLoaded", function () {
         getUserData(id, pw);
         return;
     }
+
     const rememberedUsername = localStorage.getItem("rememberedUsername");
     if (rememberedUsername) {
         document.getElementById("input-username").value = rememberedUsername;
         document.getElementById("remember").checked = true;
     }
-    getUserData();
+
+    id = document.getElementById("input-username").value.trim();
+    pw = document.getElementById("input-password").value.trim();
+
+    const loginForm = document.querySelector("form");
+    loginForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        getUserData(id, pw);
+    });
 });
 
 //참고: https://ko.javascript.info/cookie
@@ -27,43 +36,34 @@ function getCredentials() {
 }
 
 function getUserData(id, pw) {
-    const loginForm = document.querySelector("form");
-    loginForm.addEventListener("submit", function (event) {
-        event.preventDefault();
+    const remember = document.getElementById("remember").checked;
 
-        if (!id || !pw) {
-            id = document.getElementById("input-username").value.trim();
-            pw = document.getElementById("input-password").value.trim();
-        }
-        const remember = document.getElementById("remember").checked;
-
-        fetch(api + "userdata.php",
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
-                },
-                body: new URLSearchParams({ id: id, password: pw })
-            })
-            .then((response) => {
-                if (response.ok) {
-                    response.json().then(data => {
-                        writeItems(data);
-                        if (remember) {
-                            localStorage.setItem("rememberedUsername", id);
-                            document.cookie = `id=${encodeURIComponent(id)}; path=/`;
-                            document.cookie = `pw=${encodeURIComponent(pw)}; path=/`
-                        }
-                    });
-                }
-                else if (response.status == 401) {
-                    alert("비밀번호를 확인해주세요.");
-                }
-                else if (response.status == 404) {
-                    alert("사용자 정보가 없습니다.");
-                }
-            });
-    });
+    fetch(api + "userdata.php",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+            },
+            body: new URLSearchParams({ id: id, password: pw })
+        })
+        .then((response) => {
+            if (response.ok) {
+                response.json().then(data => {
+                    writeItems(data);
+                    if (remember) {
+                        localStorage.setItem("rememberedUsername", id);
+                        document.cookie = `id=${encodeURIComponent(id)}; path=/`;
+                        document.cookie = `pw=${encodeURIComponent(pw)}; path=/`
+                    }
+                });
+            }
+            else if (response.status == 401) {
+                alert("비밀번호를 확인해주세요.");
+            }
+            else if (response.status == 404) {
+                alert("사용자 정보가 없습니다.");
+            }
+        });
 }
 
 async function getProductData() {
