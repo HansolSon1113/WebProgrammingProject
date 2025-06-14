@@ -299,7 +299,7 @@
     }
     
     //json파일 가져오기
-    fetch('test.json')
+    fetch('test.json') // /WebProgrammingProject/product.php
       .then(res => res.json())
       .then(data => {
 
@@ -307,7 +307,7 @@
         data.forEach(product => {
           const card = document.createElement('div');
           card.className = 'product-card';
-          card.innerHTML = `<img src="굿즈이미지/${product.이미지파일}" alt="${product.상품명}">`;
+          card.innerHTML = `<img src="굿즈이미지/${product.img}" alt="${product.name}">`;
           container.appendChild(card);
 
           //마우스 올릴 시 강조 및 인포박스 띄우기
@@ -321,8 +321,8 @@
 
             //인포박스 띄우기
             infoBox.innerHTML = `
-              <strong>${product.상품명}</strong><br>
-              가격: ${product.가격.toLocaleString()}원<br>
+              <strong>${product.name}</strong><br>
+              가격: ${product.price.toLocaleString()}원<br>
             `;
             infoBox.classList.remove('hidden');
             const rect = card.getBoundingClientRect();
@@ -351,13 +351,13 @@
           
           //상품카드 클릭시 상세페이지 열기
           card.addEventListener('click', () => {
-            modalImg.src = `굿즈이미지/${product.이미지파일}`;
-            modalName.textContent = product.상품명;
-            modalPrice.textContent = `${product.가격}원`;
+            modalImg.src = `굿즈이미지/${product.img}`;
+            modalName.textContent = product.name;
+            modalPrice.textContent = `${product.price}원`;
             modal.classList.remove('hidden');
 
             detailBtn.onclick = () => {
-              window.open(`detail.html?id=${product.상품번호}`, '_blank');
+              window.open(`detail.html?id=${product.id}`, '_blank');
             };
 
           }); 

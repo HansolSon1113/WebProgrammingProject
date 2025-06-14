@@ -162,10 +162,10 @@
     const urlParams = new URLSearchParams(window.location.search);
     const productId = urlParams.get('id');
 
-    fetch('test.json')
+    fetch('test.json') // /WebProgrammingProject/product.php
       .then(res => res.json())
       .then(data => {
-        const product = data.find(p => p.상품번호 == productId);
+        const product = data.find(p => p.id == productId);
         const container = document.getElementById('product-detail');
 
         if (!product) {
@@ -175,13 +175,13 @@
 
         container.innerHTML = `
           <div class="product-image">
-            <img src="굿즈이미지/${product.이미지파일}" alt="${product.상품명}">
+            <img src="굿즈이미지/${product.img}" alt="${product.name}">
           </div>
           <div class="product-info">
             <div>
-              <h2>${product.상품명}</h2>
-              <p class="price">${product.가격.toLocaleString()}원</p>
-              <p><strong>상세설명:<br></strong> ${product.상세설명}</p>
+              <h2>${product.name}</h2>
+              <p class="price">${product.price.toLocaleString()}원</p>
+              <p><strong>상세설명:<br></strong> ${product.description}</p>
             </div>
             <button id="buy-button">구매하기</button>
           </div>
