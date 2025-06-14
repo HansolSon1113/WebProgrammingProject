@@ -27,8 +27,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const top = nav.offsetTop;
         if (window.scrollY < top) {
             nav.classList.remove("nav-fixed");
+            document.body.style.paddingTop = "80px";
         } else {
             nav.classList.add("nav-fixed");
+            document.body.style.paddingTop = "0";
         }
     });
 });
