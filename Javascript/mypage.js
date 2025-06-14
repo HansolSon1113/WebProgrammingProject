@@ -49,13 +49,12 @@ function getUserData(id, pw) {
             .then((response) => {
                 console.log(response.status);
                 if (response.ok) {
-                    console.log("A");
+                    loginForm.hidden = true;
                     writeItems(response.json());
                     if (remember) {
                         localStorage.setrItem("rememberedUsername", username);
                         document.cooke = `id=${encodeURIComponent(id)}, pw=${encodeURIComponent(pw)}; path=/`
                     }
-                    loginForm.hidden = true;
                 }
                 else if (response.status == 401) {
                     alert("비밀번호를 확인해주세요.");
@@ -68,9 +67,10 @@ function getUserData(id, pw) {
 }
 
 function writeItems(result) {
+    const container = document.getElementById("result-container");
+    container.hidden = false;
     const content = document.getElementById("result");
-    content.hidden = false;
-
-
-    content.innerHTML = result;
+    result.forEach(r => {
+        content.innerHTML += `<div>${r}</div>`;
+    });
 }
