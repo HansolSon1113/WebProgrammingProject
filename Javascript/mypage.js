@@ -94,8 +94,9 @@ async function writeItems(items) {
     items.forEach(item => {
         const product = products[item - 1];
         content.innerHTML += `
-        <hr>
-        <li class="result-row">
+        <div style="display:flex;">
+            <hr>
+            <li class="result-row">
                 <img src="Assets/${product.img}" alt=${product.name + " 사진"}>
                 <h2>${product.name}</h2>
                 <p>${product.price}원</p>
@@ -104,6 +105,7 @@ async function writeItems(items) {
                     <a href="detail.html?id=${item}" target="_blank">상세보기</a>
                     <button id="refund">구매 취소</button>
                 </div>
-            </li>`;
+            </li>
+        </div>`;
     });
 }
