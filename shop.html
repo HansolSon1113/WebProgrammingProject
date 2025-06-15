@@ -128,8 +128,18 @@
       width: 800px;
       max-width: 90%;
       border-radius: 10px;
-      position: absolute;
+      position: relative;
       animation: fadeIn 0.3s ease; 
+      flex-direction: row;
+      gap: 30px;
+      display: flex;
+    }
+
+    .modal-text {
+      flex-direction: column;
+      display: flex;
+      flex: 1;
+
     }
 
     @keyframes fadeIn {
@@ -138,7 +148,7 @@
     }
 
     .modal-content img {
-      width: 100%;
+      width: 50%;
       height: auto;
       display: block;
       border-radius: 8px;
@@ -154,7 +164,7 @@
     }
 
     .modal-buttons {
-      margin-top: 16px;
+      margin-top: 100%;
       display: flex;
       justify-content: space-between;
       gap: 10px;
@@ -176,8 +186,12 @@
       background-color: #145ea8;
     }
 
-    #modal-price, #modal-name {
-      text-align: center;
+    #modal-price {
+      margin: 4px 0 0 0;
+    }
+    
+    #modal-name {
+      margin: 0;
     }
 
     #login-modal {
@@ -252,12 +266,14 @@
   <div class="modal-content">
     <span class="close-button">&times;</span>
     <img id="modal-img" src="" alt="">
-    <h2 id="modal-name"></h2>
-    <p id="modal-price"></p>
+    <div class="modal-text">
+      <h2 id="modal-name"></h2>
+      <p id="modal-price"></p>
 
-    <div class="modal-buttons">
-      <button id="detail-button">상세보기</button>
-      <button id="buy-button">구매하기</button>
+      <div class="modal-buttons">
+        <button id="detail-button">상세보기</button>
+        <button id="buy-button">구매하기</button>
+      </div>
     </div>
   </div>
   <!--로그인 창-->
@@ -290,10 +306,7 @@
     const loginSub = document.getElementById('login-submit');
     const loginCloseBtn = document.getElementsByClassName('close-button')[1];
 
-    let isMobile = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    console.log(navigator.userAgent);
-
-    if (isMobile) {
+    if (window.innerWidth < 1000) {
       container.classList.add('product-grid-mobile');
     }
     else {
@@ -309,7 +322,7 @@
         data.forEach(product => {
           const card = document.createElement('div');
           card.className = 'product-card';
-          card.innerHTML = `<img src="굿즈이미지/${product.img}" alt="${product.name}">`;
+          card.innerHTML = `<img src="Assets/${product.img}" alt="${product.name}">`;
           container.appendChild(card);
 
           //마우스 올릴 시 강조 및 인포박스 띄우기
@@ -353,7 +366,7 @@
           
           //상품카드 클릭시 상세페이지 열기
           card.addEventListener('click', () => {
-            modalImg.src = `굿즈이미지/${product.img}`;
+            modalImg.src = `Assets/${product.img}`;
             modalName.textContent = product.name;
             modalPrice.textContent = `${product.price}원`;
             modal.classList.remove('hidden');
@@ -406,7 +419,6 @@
 
       window.location.href = 'mypage.html';
     })
-
 
   </script>
 
