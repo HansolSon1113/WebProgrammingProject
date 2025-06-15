@@ -94,18 +94,16 @@ async function writeItems(items) {
     items.forEach(item => {
         const product = products[item - 1];
         content.innerHTML += `
-        <div style="display:flex;flex-direction:column;">
-            <hr>
-            <li class="result-row">
-                <img src="Assets/${product.img}" alt=${product.name + " 사진"}>
-                <h2>${product.name}</h2>
-                <p>${product.price}원</p>
-                <div><p>배송/수령</p><p>대기중</p></div>
-                <div class="result-buttons">
-                    <a href="detail.html?id=${item}" target="_blank">상세보기</a>
-                    <button id="refund">구매 취소</button>
-                </div>
-            </li>
+        <hr>
+        <div class="result-row">
+            <img src="Assets/${product.img}" alt=${product.name + " 사진"}>
+            <h2>${product.name}</h2>
+            <p>${product.price}원</p>
+            <div><p>배송/수령</p><p>대기중</p></div>
+            <div class="result-buttons">
+                <a href="detail.html?id=${item}" target="_blank">상세보기</a>
+                <button id="refund">구매 취소</button>
+            </div>
         </div>`;
     });
 }

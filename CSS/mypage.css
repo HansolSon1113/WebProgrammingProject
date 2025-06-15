@@ -194,4 +194,5 @@ hr {
     color: gray;
     background-color: gray;
     margin: 0;
+    align-self: center;
 }
