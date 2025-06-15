@@ -137,6 +137,7 @@
     justify-content: center;
     text-align: center;
     align-items: center;
+    gap: 5%;
 }
 
 .result-row h2 {
@@ -144,8 +145,7 @@
     overflow-wrap: normal;
 }
 
-.result-row p,
-.text {
+.result-row p {
     width: 15%;
 }
 
