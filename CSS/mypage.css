@@ -193,6 +193,6 @@ hr {
     border: none;
     color: gray;
     background-color: gray;
-    margin: 0;
-    width: 90%;
+    margin: 0 auto;
+    width: 60%;
 }
