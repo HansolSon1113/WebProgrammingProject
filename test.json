@@ -1,58 +1,58 @@
 [
-  {
-    "id": "1",
-    "name": "미니냥이인형+미니부기인형 세트",
-    "img": "미니부기냥이_세트.png",
-    "price": 12000,
-    "category": "test",
-    "description": ""
-  },
-  {
-    "id": "2",
-    "name": "미니부기인형",
-    "img": "미니부기인형.png",
-    "price": 6000,
-    "category": "test",
-    "description": "고리형 8cm"
-  },
-  {
-    "id": "3",
-    "name": "상상부기볼펜",
-    "img": "상상부기볼펜.png",
-    "price": 500,
-    "category": "test",
-    "description": "색상: 블루/오트밀<br> 크기: 143mm * 14mm"
-  },
-  {
-    "id": "4",
-    "name": "상상부기 토트백",
-    "img": "토트백차콜중.png",
-    "price": 8000,
-    "category": "test",
-    "description": "가로: 37cm<br>폭: 11cm<br>높이: 21cm"
-  },
-  {
-    "id": "5",
-    "name": "상상부기 슬리퍼",
-    "img": "슬리퍼.png",
-    "price": 13000,
-    "category": "test",
-    "description": "사이즈: 250mm ~ 290mm (10mm 단위)"
-  },
-  {
-    "id": "6",
-    "name": "상상부기우산 남색2단",
-    "img": "상상부기_우산_남색.png",
-    "price": 15000,
-    "category": "test",
-    "description": "길이: 약40cm"
-  },
-  {
-    "id": "7",
-    "name": "상상부기 쇼핑백",
-    "img": "쇼핑백.png",
-    "price": 1200,
-    "category": "test",
-    "description": "사이즈: 21.5x29.5x9(cm)"
-  }
+    {
+        "id": "1",
+        "name": "미니냥이인형+미니부기인형 세트",
+        "img": "미니부기냥이_세트.png",
+        "price": 12000,
+        "category": 0,
+        "description": ""
+    },
+    {
+        "id": "2",
+        "name": "미니부기인형",
+        "img": "미니부기인형.png",
+        "price": 6000,
+        "category": 0,
+        "description": "고리형 8cm"
+    },
+    {
+        "id": "3",
+        "name": "상상부기볼펜",
+        "img": "상상부기볼펜.png",
+        "price": 500,
+        "category": 2,
+        "description": "색상: 블루/오트밀<br> 크기: 143mm * 14mm"
+    },
+    {
+        "id": "4",
+        "name": "상상부기 토트백",
+        "img": "토트백차콜중.png",
+        "price": 8000,
+        "category": 1,
+        "description": "가로: 37cm<br>폭: 11cm<br>높이: 21cm"
+    },
+    {
+        "id": "5",
+        "name": "상상부기 슬리퍼",
+        "img": "슬리퍼.png",
+        "price": 13000,
+        "category": 2,
+        "description": "사이즈: 250mm ~ 290mm (10mm 단위)"
+    },
+    {
+        "id": "6",
+        "name": "상상부기우산 남색2단",
+        "img": "상상부기_우산_남색.png",
+        "price": 15000,
+        "category": 2,
+        "description": "길이: 약40cm"
+    },
+    {
+        "id": "7",
+        "name": "상상부기 쇼핑백",
+        "img": "쇼핑백.png",
+        "price": 1200,
+        "category": 1,
+        "description": "사이즈: 21.5x29.5x9(cm)"
+    }
 ]

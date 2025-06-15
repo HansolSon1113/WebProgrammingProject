@@ -1,433 +1,478 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>쇼핑몰 페이지</title>
-  <script src="Javascript/navigator.js"></script>
-  <script>
-    window.currentPage = pages.shop;
-  </script>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Arial', sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>쇼핑몰 페이지</title>
+    <script src="Javascript/navigator.js"></script>
+    <script>
+        window.currentPage = pages.shop;
+    </script>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
 
-    .category-bar {
-      background-color: #333;
-      padding: 12px 20px;
-      display: flex;
-      gap: 20px;
-    }
+        .category-bar {
+            background-color: #333;
+            padding: 12px 20px;
+            display: flex;
+            gap: 20px;
+        }
 
-    .category-bar a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 16px;
-    }
+        .category-bar a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+        }
 
-    .category-bar a:hover {
-      text-decoration: underline;
-    }
+        .category-bar a:hover {
+            text-decoration: underline;
+        }
 
-    /* 상품 그리드 */
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 4px;
-      padding: 10px;
-      background-color: #f9f9f9;
-      flex-wrap: wrap;
-      justify-content: space-between;
-    }
+        /* 상품 그리드 */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 4px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
 
-    /* 모바일 환경 */
-    .product-grid-mobile {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 4px;
-      padding: 10px;
-      background-color: #f9f9f9;
-      flex-wrap: wrap;
-      justify-content: space-between;
-    }
+        /* 모바일 환경 */
+        .product-grid-mobile {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
 
-    .product-card {
-      background-color: #fff;
-      overflow: hidden;
-      border-radius: 6px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
-      text-align: center;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
+        .product-card {
+            background-color: #fff;
+            overflow: hidden;
+            border-radius: 6px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
 
-    .product-card img {
-      width: 100%;
-      aspect-ratio: 3 / 2;
-      object-fit: contain;
-      display: block;
-    }
+        .product-card img {
+            width: 100%;
+            aspect-ratio: 3 / 2;
+            object-fit: contain;
+            display: block;
+        }
 
-    .product-card h3 {
-      margin: 10px 0 4px;
-      font-size: 16px;
-    }
+        .product-card h3 {
+            margin: 10px 0 4px;
+            font-size: 16px;
+        }
 
-    .product-card .price {
-      margin-bottom: 10px;
-      color: #e91e63;
-      font-weight: bold;
-      font-size: 14px;
-    }
+        .product-card .price {
+            margin-bottom: 10px;
+            color: #e91e63;
+            font-weight: bold;
+            font-size: 14px;
+        }
 
-    .product-card.hovered {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    }
+        .product-card.hovered {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
 
-    .product-card.dimmed {
-      transform: scale(0.95);
-      opacity: 0.5;
-    }
+        .product-card.dimmed {
+            transform: scale(0.95);
+            opacity: 0.5;
+        }
 
-    #product-info {
-      position: absolute;
-      background: white;
-      border: 1px solid #ddd;
-      padding: 12px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      font-size: 14px;
-      z-index: 3;
-      transition: opacity 0.3s ease;
-    }
+        #product-info {
+            position: absolute;
+            background: white;
+            border: 1px solid #ddd;
+            padding: 12px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            font-size: 14px;
+            z-index: 3;
+            transition: opacity 0.3s ease;
+        }
 
-    .hidden {
-      display: none !important;
-    }
+        .hidden {
+            display: none !important;
+        }
 
-    #product-modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
-      overflow: auto;
-    }
+        #product-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            overflow: auto;
+        }
 
-    .modal-content {
-      background-color: white;
-      padding: 20px;
-      width: 800px;
-      max-width: 90%;
-      border-radius: 10px;
-      position: relative;
-      animation: fadeIn 0.3s ease; 
-      flex-direction: row;
-      gap: 30px;
-      display: flex;
-    }
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            width: 800px;
+            max-width: 90%;
+            border-radius: 10px;
+            position: relative;
+            animation: fadeIn 0.3s ease;
+            flex-direction: row;
+            gap: 30px;
+            display: flex;
+        }
 
-    .modal-text {
-      flex-direction: column;
-      display: flex;
-      flex: 1;
+        .modal-text {
+            flex-direction: column;
+            display: flex;
+            flex: 1;
 
-    }
+        }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
 
-    .modal-content img {
-      width: 50%;
-      height: auto;
-      display: block;
-      border-radius: 8px;
-      object-fit: contain;
-    }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
 
-    .close-button {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 24px;
-      cursor: pointer;
-    }
+        .modal-content img {
+            width: 50%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            object-fit: contain;
+        }
 
-    .modal-buttons {
-      margin-top: 100%;
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-    }
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+        }
 
-    .modal-buttons button {
-      flex: 1;
-      padding: 10px 15px;
-      border: none;
-      background-color: #1976d2;
-      color: white;
-      font-size: 14px;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.2s ease;
-    }
+        .modal-buttons {
+            margin-top: 100%;
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
 
-    .modal-buttons button:hover {
-      background-color: #145ea8;
-    }
+        .modal-buttons button {
+            flex: 1;
+            padding: 10px 15px;
+            border: none;
+            background-color: #1976d2;
+            color: white;
+            font-size: 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
 
-    #modal-price {
-      margin: 4px 0 0 0;
-    }
-    
-    #modal-name {
-      margin: 0;
-    }
+        .modal-buttons button:hover {
+            background-color: #145ea8;
+        }
 
-    #login-modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
-      overflow: auto;
-    }
+        #modal-price {
+            margin: 4px 0 0 0;
+        }
 
-    .login-modal-content {
-      background-color: #ffffff;
-      padding: 40px 30px;
-      width: 400px;
-      border-radius: 12px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-      position: relative;
-      text-align: center;
-      animation: fadeIn 0.3s ease;
-    }
-    
-    .login-modal-content input {
-      display: block;
-      width: 100%;
-      padding: 12px 15px;
-      margin-bottom: 15px;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      box-sizing: border-box;
-      transition: border 0.2s ease;
-    }
+        #modal-name {
+            margin: 0;
+        }
 
-    .login-modal-content button {
-      width: 100%;
-      padding: 12px;
-      font-size: 16px;
-      background-color: #457b9d;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
+        #login-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            overflow: auto;
+        }
 
-    .login-modal-content button:hover {
-      background-color: #1d3557;
-    }
+        .login-modal-content {
+            background-color: #ffffff;
+            padding: 40px 30px;
+            width: 400px;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            text-align: center;
+            animation: fadeIn 0.3s ease;
+        }
 
-  </style>
+        .login-modal-content input {
+            display: block;
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+            transition: border 0.2s ease;
+        }
+
+        .login-modal-content button {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            background-color: #457b9d;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-modal-content button:hover {
+            background-color: #1d3557;
+        }
+    </style>
 </head>
+
 <body>
 
-  <!-- 카테고리 바 -->
-  <div class="category-bar">
-    <a href="#">전체</a>
-  </div>
-
-  <!-- 상품 목록 -->
-  <div id="product-list">
-  </div>
-  <!--마우스 호버링 시 뜨는 설명박스-->
-  <div id="product-info" class="hidden"></div>
-  <!--상세창-->
- <div id="product-modal" class="hidden">
-  <div class="modal-content">
-    <span class="close-button">&times;</span>
-    <img id="modal-img" src="" alt="">
-    <div class="modal-text">
-      <h2 id="modal-name"></h2>
-      <p id="modal-price"></p>
-
-      <div class="modal-buttons">
-        <button id="detail-button">상세보기</button>
-        <button id="buy-button">구매하기</button>
-      </div>
+    <!-- 카테고리 바 -->
+    <div class="category-bar">
+        <a href="#" id="cate-all">전체</a>
+        <a href="#" id="cate-accessory">악세서리</a>
+        <a href="#" id="cate-bag">가방</a>
+        <a href="#" id="cate-others">기타</a>
     </div>
-  </div>
-  <!--로그인 창-->
-  <div id="login-modal" class="hidden">
-    <div class="login-modal-content">
-      <span class="close-button">&times;</span>
-      <h3>로그인</h3>
-      <input id="login-id" type="text" placeholder="학번" style="width: 100%; margin-bottom: 10px;">
-      <input id="login-pw" type="password" placeholder="비밀번호" style="width: 100%; margin-bottom: 10px;">
-      <button id="login-submit" style="width: 100%; padding: 8px;">확인</button>
+
+    <!-- 상품 목록 -->
+    <div id="product-list">
     </div>
-  </div>
-</div>
+    <!--마우스 호버링 시 뜨는 설명박스-->
+    <div id="product-info" class="hidden"></div>
+    <!--상세창-->
+    <div id="product-modal" class="hidden">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <img id="modal-img" src="" alt="">
+            <div class="modal-text">
+                <h2 id="modal-name"></h2>
+                <p id="modal-price"></p>
 
-  <script>
-    //변수선언하기
-    const api = "http://138.2.120.185/WebProgrammingProject/"
+                <div class="modal-buttons">
+                    <button id="detail-button">상세보기</button>
+                    <button id="buy-button">구매하기</button>
+                </div>
+            </div>
+        </div>
+        <!--로그인 창-->
+        <div id="login-modal" class="hidden">
+            <div class="login-modal-content">
+                <span class="close-button">&times;</span>
+                <h3>로그인</h3>
+                <input id="login-id" type="text" placeholder="학번" style="width: 100%; margin-bottom: 10px;">
+                <input id="login-pw" type="password" placeholder="비밀번호" style="width: 100%; margin-bottom: 10px;">
+                <button id="login-submit" style="width: 100%; padding: 8px;">확인</button>
+            </div>
+        </div>
+    </div>
 
-    const container = document.getElementById('product-list');
-
-    const infoBox = document.getElementById('product-info');
-
-    const modal = document.getElementById('product-modal');
-    const modalImg = document.getElementById('modal-img');
-    const modalName = document.getElementById('modal-name');
-    const modalPrice = document.getElementById('modal-price');
-    const closeBtn = document.getElementsByClassName('close-button')[0];
-    const detailBtn = document.getElementById('detail-button');
-    const buyBtn = document.getElementById('buy-button');
-
-    const loginModal = document.getElementById('login-modal');
-    const loginSub = document.getElementById('login-submit');
-    const loginCloseBtn = document.getElementsByClassName('close-button')[1];
-
-    if (window.innerWidth < 1000) {
-      container.classList.add('product-grid-mobile');
-    }
-    else {
-      container.classList.add('product-grid');
-    }
-    
-    //json파일 가져오기
-    fetch('test.json') // /WebProgrammingProject/product.php
-      .then(res => res.json())
-      .then(data => {
-
-        //상품 카드 띄우기
-        data.forEach(product => {
-          const card = document.createElement('div');
-          card.className = 'product-card';
-          card.innerHTML = `<img src="Assets/${product.img}" alt="${product.name}">`;
-          container.appendChild(card);
-
-          //마우스 올릴 시 강조 및 인포박스 띄우기
-          card.addEventListener('mouseenter', e => {
-            document.querySelectorAll('.product-card').forEach(c => {
-              c.classList.add('dimmed');
-              c.classList.remove('hovered');
-            });
-            card.classList.remove('dimmed');
-            card.classList.add('hovered');
-
-            //인포박스 띄우기
-            infoBox.innerHTML = `
-              <strong>${product.name}</strong><br>
-              가격: ${product.price.toLocaleString()}원<br>
-            `;
-            infoBox.classList.remove('hidden');
-            const rect = card.getBoundingClientRect();
-            const offset = card.offsetWidth * 0.1;
-            const infoBoxWidth = infoBox.offsetWidth;
-            const spaceRight = window.innerWidth - rect.right;
-
-            let left; 
-            if (spaceRight > offset + infoBoxWidth) {
-              left = rect.right + window.scrollX + offset;
-            }
-            else {
-              left = rect.left - infoBoxWidth - offset + window.scrollX;
-            }
-            infoBox.style.left = `${left}px`;
-            infoBox.style.top = `${rect.top + window.screenY}px`;
-          })
-
-          //마우스 치울시 강조해제
-          card.addEventListener('mouseleave', e => {
-            document.querySelectorAll('.product-card').forEach(c => {
-              c.classList.remove('dimmed', 'hovered');
-            });
-            infoBox.classList.add('hidden');
-          })
-          
-          //상품카드 클릭시 상세페이지 열기
-          card.addEventListener('click', () => {
-            modalImg.src = `Assets/${product.img}`;
-            modalName.textContent = product.name;
-            modalPrice.textContent = `${product.price}원`;
-            modal.classList.remove('hidden');
-
-            detailBtn.onclick = () => {
-              window.open(`detail.html?id=${product.id}`, '_blank');
-            };
-
-          loginSub.addEventListener('click', () => {
-            const loginId = document.getElementById('login-id').value.trim();
-            const loginPw = document.getElementById('login-pw').value.trim();
-
-            if (!loginId || !loginPw) {
-              alert("학번과 비밀번호를 모두 입력해주세요!");
-              return;
-            }
-
-            document.cookie = `id=${loginId}`;
-            document.cookie = `pw=${loginPw}`;
-            document.cookie = `productId=${product.id}`;
-
-            window.location.href = 'mypage.html';
-          })
+    <script>
+        //변수선언하기
+        const api = "http://138.2.120.185/WebProgrammingProject/"
 
 
+        const container = document.getElementById('product-list');
+        const infoBox = document.getElementById('product-info');
 
-          }); 
+        const modal = document.getElementById('product-modal');
+        const modalImg = document.getElementById('modal-img');
+        const modalName = document.getElementById('modal-name');
+        const modalPrice = document.getElementById('modal-price');
+        const closeBtn = document.getElementsByClassName('close-button')[0];
+        const detailBtn = document.getElementById('detail-button');
+        const buyBtn = document.getElementById('buy-button');
+
+        const loginModal = document.getElementById('login-modal');
+        const loginSub = document.getElementById('login-submit');
+        const loginCloseBtn = document.getElementsByClassName('close-button')[1];
+
+        const Category = Object.freeze({
+            ALL: -1,
+            ACCESSORY: 0,
+            BAG: 1,
+            OTHERS: 2
+        });
+
+        if (window.innerWidth < 1000) {
+            container.classList.add('product-grid-mobile');
+        }
+        else {
+            container.classList.add('product-grid');
+        }
+
+        //json파일 가져오기
+        fetch('test.json') // /WebProgrammingProject/product.php
+            .then(res => res.json())
+            .then(data => {
+                //상품 카드 띄우기
+                function renderProducts(data) {
+
+                    container.innerHTML = "";
+                    data.forEach(product => {
+                        const card = document.createElement('div');
+                        card.className = 'product-card';
+                        card.innerHTML = `<img src="Assets/${product.img}" alt="${product.name}">`;
+                        container.appendChild(card);
+
+                        //마우스 올릴 시 강조 및 인포박스 띄우기
+                        card.addEventListener('mouseenter', e => {
+                            document.querySelectorAll('.product-card').forEach(c => {
+                                c.classList.add('dimmed');
+                                c.classList.remove('hovered');
+                            });
+                            card.classList.remove('dimmed');
+                            card.classList.add('hovered');
+
+                            //인포박스 띄우기
+                            infoBox.innerHTML = `
+                                <strong>${product.name}</strong><br>F
+                                가격: ${product.price.toLocaleString()}원<br>
+                                `;
+                            infoBox.classList.remove('hidden');
+                            const rect = card.getBoundingClientRect();
+                            const offset = card.offsetWidth * 0.1;
+                            const infoBoxWidth = infoBox.offsetWidth;
+                            const spaceRight = window.innerWidth - rect.right;
+
+                            let left;
+                            if (spaceRight > offset + infoBoxWidth) {
+                                left = rect.right + window.scrollX + offset;
+                            }
+                            else {
+                                left = rect.left - infoBoxWidth - offset + window.scrollX;
+                            }
+                            infoBox.style.left = `${left}px`;
+                            infoBox.style.top = `${rect.top + window.screenY}px`;
+                        })
+
+                        //마우스 치울시 강조해제
+                        card.addEventListener('mouseleave', e => {
+                            document.querySelectorAll('.product-card').forEach(c => {
+                                c.classList.remove('dimmed', 'hovered');
+                            });
+                            infoBox.classList.add('hidden');
+                        })
+
+                        //상품카드 클릭시 상세페이지 열기
+                        card.addEventListener('click', () => {
+                            modalImg.src = `Assets/${product.img}`;
+                            modalName.textContent = product.name;
+                            modalPrice.textContent = `${product.price}원`;
+                            modal.classList.remove('hidden');
+
+                            detailBtn.onclick = () => {
+                                window.open(`detail.html?id=${product.id}`, '_blank');
+                            };
+                        });
+                        loginSub.onclick = () => {
+                            const loginId = document.getElementById('login-id').value.trim();
+                            const loginPw = document.getElementById('login-pw').value.trim();
+
+                            if (!loginId || !loginPw) {
+                                alert("학번과 비밀번호를 모두 입력해주세요!");
+                                return;
+                            }
+
+                            document.cookie = `id=${loginId}`;
+                            document.cookie = `pw=${loginPw}`;
+                            document.cookie = `productId=${product.id}`;
+
+                            window.location.href = 'mypage.html';
+                        }
+                    })
+                }
+                document.getElementById("cate-all").addEventListener("click", (e) => {
+                    e.preventDefault();
+                    renderProducts(filterProducts(data, Category.ALL));
+                })
+                document.getElementById("cate-accessory").addEventListener("click", (e) => {
+                    e.preventDefault();
+                    renderProducts(filterProducts(data, Category.ACCESSORY));
+                })
+                document.getElementById("cate-bag").addEventListener("click", (e) => {
+                    e.preventDefault();
+                    renderProducts(filterProducts(data, Category.BAG));
+                })
+                document.getElementById("cate-others").addEventListener("click", (e) => {
+                    e.preventDefault();
+                    renderProducts(filterProducts(data, Category.OTHERS));
+                })
+
+                renderProducts(data);
+
+
+            })
+            .catch(err => console.error('실패', err));
+
+        function filterProducts(products, category) {
+            if (category === Category.ALL) return products;
+            return products.filter(p => p.category === category);
+        }
+
+
+
+        //모달창 끄고키는 이벤트들
+        closeBtn.addEventListener('click', () => {
+            modal.classList.add('hidden');
         })
-      })
-    .catch(err => console.error('실패', err));
-    
-    //모달창 끄고키는 이벤트들
-    closeBtn.addEventListener('click', () => {
-      modal.classList.add('hidden');
-    })
 
-    loginCloseBtn.addEventListener('click', () => {
-      loginModal.classList.add('hidden');
-    })
+        loginCloseBtn.addEventListener('click', () => {
+            loginModal.classList.add('hidden');
+        })
 
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.classList.add('hidden');
-      }
-    })
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.add('hidden');
+            }
+        })
 
-    buyBtn.addEventListener('click', () => {
-      loginModal.classList.remove('hidden');
-    })
+        buyBtn.addEventListener('click', () => {
+            loginModal.classList.remove('hidden');
+        })
 
-    loginModal.addEventListener('click', (e) => {
-      if (e.target === loginModal) {
-        loginModal.classList.add('hidden');
-      }
-    })  
-    //로그인 정보 제출
+        loginModal.addEventListener('click', (e) => {
+            if (e.target === loginModal) {
+                loginModal.classList.add('hidden');
+            }
+        })
+        //로그인 정보 제출
 
 
-  </script>
+    </script>
 
 </body>
+
 </html>
