@@ -320,7 +320,6 @@
         const loginCloseBtn = document.getElementsByClassName('close-button')[1];
 
         const Category = Object.freeze({
-            ALL: -1,
             ACCESSORY: 0,
             BAG: 1,
             OTHERS: 2
@@ -416,7 +415,7 @@
                 }
                 document.getElementById("cate-all").addEventListener("click", (e) => {
                     e.preventDefault();
-                    renderProducts(filterProducts(data, Category.ALL));
+                    renderProducts(filterProducts(data, -1));
                 })
                 document.getElementById("cate-accessory").addEventListener("click", (e) => {
                     e.preventDefault();
@@ -438,7 +437,7 @@
             .catch(err => console.error('실패', err));
 
         function filterProducts(products, category) {
-            if (category === Category.ALL) return products;
+            if (category === -1) return products;
             return products.filter(p => p.category === category);
         }
 
