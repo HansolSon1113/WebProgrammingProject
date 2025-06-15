@@ -149,6 +149,10 @@
     width: 15%;
 }
 
+.result-row p {
+    white-space: nowrap;
+}
+
 .result-buttons {
     display: flex;
     flex-direction: column;
