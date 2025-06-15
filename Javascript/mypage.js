@@ -94,7 +94,7 @@ async function writeItems(items) {
     items.forEach(item => {
         const product = products[item - 1];
         content.innerHTML += `
-        <div style="display:flex;">
+        <div style="display:flex;flex-direction:column;">
             <hr>
             <li class="result-row">
                 <img src="Assets/${product.img}" alt=${product.name + " 사진"}>
