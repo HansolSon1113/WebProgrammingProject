@@ -145,7 +145,7 @@
     overflow-wrap: normal;
 }
 
-.result-row p {
+.result-row > p {
     width: 15%;
 }
 
