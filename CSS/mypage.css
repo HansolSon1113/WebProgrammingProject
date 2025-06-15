@@ -190,7 +190,8 @@ img {
 
 hr {
     height: 1px;
-    border-width: 0;
+    border: none;
     color: gray;
     background-color: gray;
+    width: 90%;
 }
