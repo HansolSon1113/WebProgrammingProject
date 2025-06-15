@@ -377,9 +377,21 @@
               window.open(`detail.html?id=${product.id}`, '_blank');
             };
 
+          loginSub.addEventListener('click', () => {
+            const loginId = document.getElementById('login-id').value.trim();
+            const loginPw = document.getElementById('login-pw').value.trim();
 
+            if (!loginId || !loginPw) {
+              alert("학번과 비밀번호를 모두 입력해주세요!");
+              return;
+            }
 
+            document.cookie = `id=${loginId}`;
+            document.cookie = `pw=${loginPw}`;
+            document.cookie = `productId=${product.id}`;
 
+            window.location.href = 'mypage.html';
+          })
 
 
 
@@ -413,20 +425,7 @@
       }
     })  
     //로그인 정보 제출
-    loginSub.addEventListener('click', () => {
-      const loginId = document.getElementById('login-id').value.trim();
-      const loginPw = document.getElementById('login-pw').value.trim();
 
-      if (!loginId || !loginPw) {
-        alert("학번과 비밀번호를 모두 입력해주세요!");
-        return;
-      }
-
-      document.cookie = `id=${loginId}`;
-      document.cookie = `pw=${loginPw}`;
-
-      window.location.href = 'mypage.html';
-    })
 
   </script>
 
