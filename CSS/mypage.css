@@ -145,7 +145,7 @@
     overflow-wrap: normal;
 }
 
-.result-row > p {
+.result-row>p {
     width: 15%;
 }
 
@@ -186,4 +186,11 @@ img {
 
 #result-container {
     height: calc(100vh - 80px - 10rem);
+}
+
+hr {
+    height: 0.1px;
+    border-width: 0;
+    color: gray;
+    background-color: gray;
 }
