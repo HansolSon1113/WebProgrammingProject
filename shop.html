@@ -290,6 +290,8 @@
 
   <script>
     //변수선언하기
+    const api = "http://138.2.120.185/WebProgrammingProject/"
+
     const container = document.getElementById('product-list');
 
     const infoBox = document.getElementById('product-info');
@@ -314,7 +316,7 @@
     }
     
     //json파일 가져오기
-    fetch('test.json') // /WebProgrammingProject/product.php
+    fetch(api + "product.php", { method: "GET"}) // /WebProgrammingProject/product.php
       .then(res => res.json())
       .then(data => {
 
@@ -374,6 +376,12 @@
             detailBtn.onclick = () => {
               window.open(`detail.html?id=${product.id}`, '_blank');
             };
+
+
+
+
+
+
 
           }); 
         })
