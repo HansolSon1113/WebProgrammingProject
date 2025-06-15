@@ -93,8 +93,9 @@ async function writeItems(items) {
     const content = document.getElementById("result");
     items.forEach(item => {
         const product = products[item - 1];
-        content.innerHTML += `<li class="result-row">
-                <hr>
+        content.innerHTML += `
+        <hr>
+        <li class="result-row">
                 <img src="Assets/${product.img}" alt=${product.name + " 사진"}>
                 <h2>${product.name}</h2>
                 <p>${product.price}원</p>
