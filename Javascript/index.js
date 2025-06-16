@@ -24,14 +24,13 @@ document.addEventListener("DOMContentLoaded", () => {
                     document.body.style.overflow = 'hidden';
                     helloText.textContent = '저희에 대해 소개해드릴게요!';
                     setTimeout(() => {
-                        helloText.textContent = "안녕하세요!"
                         document.body.style.overflow = '';
-                    }, 2000);
+                    }, 1000);
                     observer.unobserve(entry.target);
                 }
             })
         },
-        { threshold: 0.5 }
+        { threshold: 1 }
     );
     obs.observe(helloSection);
 });
