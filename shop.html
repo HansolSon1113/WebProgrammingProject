@@ -333,7 +333,9 @@
         }
 
         //json파일 가져오기
-        fetch('test.json') // /WebProgrammingProject/product.php
+        fetch(api + "product.php", {
+            method: "GET"
+        }) // /WebProgrammingProject/product.php
             .then(res => res.json())
             .then(data => {
                 //상품 카드 띄우기
@@ -445,7 +447,6 @@
                         .then((response) => {
                             if (response.ok) {
                                 response.json().then(data => {
-                                    writeItems(data);
                                     if (remember) {
                                         localStorage.setItem("rememberedUsername", id);
                                         document.cookie = `id=${encodeURIComponent(id)}; path=/`;

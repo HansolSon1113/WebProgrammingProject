@@ -12,6 +12,27 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(selector).forEach(element => {
         observer.observe(element);
     });
+
+    document.body.style.overflow = '';
+    const helloSection = document.getElementById('hello');
+    const helloText = document.getElementById('hello-text');
+
+    const obs = new IntersectionObserver(
+        (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    document.body.style.overflow = 'hidden';
+                    helloText.textContent = '저희에 대해 소개해드릴게요!';
+                    setTimeout(() => {
+                        document.body.style.overflow = '';
+                    }, 200);
+                    observer.unobserve(entry.target);
+                }
+            })
+        },
+        { threshold: 0.5 }
+    );
+    obs.observe(helloSection);
 });
 
 const observer = new IntersectionObserver(
@@ -27,4 +48,8 @@ const observer = new IntersectionObserver(
     },
     { threshold: 0.4 }
 );
+
+
+
+
 
