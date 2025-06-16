@@ -317,10 +317,13 @@ body {
     background-image: url("../Assets/buy_text.png");
     width: 10rem;
     height: 3rem;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
 }
 
 .buy-image:hover {
     background-image: url("../Assets/buy_text_hover.png");
+    width: 12rem;
 }
 
 .fade,
