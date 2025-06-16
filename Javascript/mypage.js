@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-//참고: https://ko.javascript.info/cookie
 function getCredentials() {
     const id = document.cookie.match(/(?<=^|;\s*)id=([^;]*)/); // id 값만 정확히 추출
     const pw = document.cookie.match(/(?<=^|;\s*)pw=([^;]*)/);
@@ -86,8 +85,6 @@ async function writeItems(items) {
     const products = await getProductData();
     if (!products) return;
 
-    console.log(products);
-
     const container = document.getElementById("result-container");
     container.hidden = false;
     const content = document.getElementById("result");
@@ -102,8 +99,13 @@ async function writeItems(items) {
             <div><p>배송/수령</p><p>대기중</p></div>
             <div class="result-buttons">
                 <a href="detail.html?id=${item}" target="_blank">상세보기</a>
-                <button id="refund">구매 취소</button>
             </div>
         </div>`;
+
+        document.getElementById("logout").addEventListener("click", () => {
+            document.cookie = "id=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/";
+            document.cookie = "pw=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/";
+            location.reload();
+        });
     });
 }

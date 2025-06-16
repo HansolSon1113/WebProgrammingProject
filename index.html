@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="CSS/nanum_font.css">
     <link rel="stylesheet" href="CSS/index.css">
     <script src="Javascript/navigator.js"></script>
-
+    <script src="Javascript/index.js"></script>
     <script>
         window.currentPage = pages.main;
     </script>
@@ -25,7 +25,7 @@
     <section id="intro">
         <section id="intro-container" class="container">
             <div id="intro-photo" class="flex-column bgpic-setting">
-                <div id="intro-mascot" class="flex-row">
+                <div id="intro-mascot" class="flex-row fade">
                     <div class="flex-column">
                         <div class="spacer"></div>
                         <img src="Assets/mascot_1.png" alt="상상부기 1" id="mascot-1">
@@ -43,15 +43,13 @@
         </section>
         <section id="sample" class="container">
             <div id="sample-container">
-                <div class="photo-container reveal-up">
+                <div class="photo-container fade">
                     <img src="Assets/sample.png" alt="예시 상품" class="photo">
                 </div>
-                <div class="flex-row">
-                    <label for="shop-btn">
-                        <img src="Assets/mascot_3.png" alt="상상부기 3">
-                    </label>
+                <div class="flex-row fade">
+                    <img src="Assets/mascot_3.png" alt="상상부기 3" style="width: 10%;height: auto;">
                     <a href="shop.html" target="_self">
-                        <img src="Assets/buy_text.png" alt="구매하러가기">
+                        <div class="buy-image"></div>
                     </a>
                 </div>
             </div>
@@ -60,245 +58,283 @@
     </section>
 
     <section id="hello" class="container">
-        <h2 id="hello-text">반가워요!</h2>
+        <h2 id="hello-text" class="fade">반가워요!</h2>
         <img src="Assets/mascot_friends_1.png" alt="상상부기 프렌즈 1">
     </section>
 
     <section id="mascot">
         <section id="story" class="container story">
-            <div id="story-title" class="section-title flex-row reveal-up">
+            <div id="story-title" class="section-title flex-row fade">
                 <h2>✨</h2>
                 <h2 style="color:blue;">상상부기</h2>
                 <h2>의 탄생✨</h2>
             </div>
-            <div class="story-content-left reveal-up">
-                <img src="Assets/mascot_4.png" alt="상상부기 알" class="story-img">
-                <div class="story-text">
-                    <p>
-                        상상관을 짓기 위해 땅을 파내던 중,
-                    </p>
-                    <p>
-                        신비한 무언가가 나타났어요.
-                    </p>
+            <div class="story-container">
+                <div class="scene">
+                    <div class="story-content-left">
+                        <img src="Assets/mascot_4.png" alt="상상관 공사중" class="story-img fade-left">
+                        <div class="story-text fade">
+                            <p>
+                                상상관을 짓기 위해 땅을 파내던 중,
+                            </p>
+                            <p>
+                                신비한 무언가가 나타났어요.
+                            </p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="story-content-right reveal-up">
-                <div class="story-text">
-                    <p>
-                        그건, 바로!
-                    </p>
-                    <p>
-                        거대한 알이었답니다.
-                    </p>
+                <div class="scene">
+                    <div class="story-content-right">
+                        <div class="story-text fade">
+                            <p>
+                                그건, 바로!
+                            </p>
+                            <p>
+                                거대한 알이었답니다.
+                            </p>
+                        </div>
+                        <img src="Assets/mascot_5.png" alt="상상부기 알" class="story-img fade-right">
+                    </div>
                 </div>
-                <img src="Assets/mascot_5.png" alt="상상부기 알" class="story-img">
-            </div>
-            <div class="story-content-left reveal-up">
-                <img src="Assets/mascot_6.png" alt="상상부기 알" class="story-img">
-                <div class="story-text">
-                    <p>
-                        그리고 거기서 태어난건
-                    </p>
-                    <p>
-                        한 귀여운 거북이었어요.
-                    </p>
+                <div class="scene">
+                    <div class="story-content-left">
+                        <img src="Assets/mascot_6.png" alt="상상부기 알" class="story-img fade-left">
+                        <div class="story-text fade">
+                            <p>
+                                그리고 거기서 태어난건
+                            </p>
+                            <p>
+                                한 귀여운 거북이었어요.
+                            </p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="story-content-right reveal-up">
-                <div class="story-text">
-                    <p>
-                        이렇게 태어난 상상부기는
-                    </p>
-                    <p>
-                        한성대 공식 마스코트가 되어 여러분들을 환영한답니다!
-                    </p>
+                <div class="scene">
+                    <div class="story-content-right">
+                        <div class="story-text fade">
+                            <p>
+                                이렇게 태어난 상상부기는
+                            </p>
+                            <p>
+                                한성대 공식 마스코트가 되어 여러분들을 환영한답니다!
+                            </p>
+                        </div>
+                        <img src="Assets/mascot_7.png" alt="상상부기 알" class="story-img fade-right">
+                    </div>
                 </div>
-                <img src="Assets/mascot_7.png" alt="상상부기 알" class="story-img">
             </div>
         </section>
 
         <section id="features" class="container">
-            <h2 id="features-title" class="section-title reveal-up">상상력이 가득한 마법의 가방</h2>
-            <p id="features-description" class="section-description reveal-up">무엇이든 꺼낼 수 있는 신비한 가방으로 한성인들의
+            <h2 id="features-title" class="section-title fade">상상력이 가득한 마법의 가방</h2>
+            <p id="features-description" class="section-description fade">무엇이든 꺼낼 수 있는 신비한 가방으로 한성인들의
                 꿈과 상상을
                 현실로 만들어요</p>
             <div id="feature-grid" class="grid">
-                <img src="Assets/mascot_grid_1.png" alt="상상부기 따봉">
-                <h3 style="align-self: end;">여러분을 돕기 위한 등딱지</h3>
-                <img src="Assets/mascot_grid_3.png" alt="상상부기 X">
+                <img src="Assets/mascot_grid_1.png" alt="상상부기 따봉" class="fade-left">
+                <h3 style="align-self: end;" class="fade-bottom">여러분을 돕기 위한 등딱지</h3>
+                <img src="Assets/mascot_grid_3.png" alt="상상부기 X" class="fade-right">
 
-                <h3 style="align-self: start;">도움이 필요할 때마다 나타나는 따뜻한 마음</h3>
-                <img src="Assets/mascot_2.png" alt="상상부기 등딱지">
-                <h3 style="align-self: start;">그래도 학점은... 못해준다네요</h3>
+                <h3 style="align-self: start;" class="fade-left">도움이 필요할 때마다 나타나는 따뜻한 마음</h3>
+                <img src="Assets/mascot_2.png" alt="상상부기 등딱지" class="fade-bottom">
+                <h3 style="align-self: start;" class="fade-right">그래도 학점은... 못해준다네요</h3>
             </div>
         </section>
 
         <section id="lifestyle" class="container">
-            <h2 class="section-title reveal-up">상상부기의 하루</h2>
-            <h3>바쁜 한성인의 삶</h3>
+            <h2 class="section-title fade">상상부기의 하루</h2>
+            <h3 class="fade">바쁜 한성인의 삶</h3>
             <div id="lifestyle-grid" class="grid">
-                <h3>☀️ 아침</h3>
-                <h3>📚 낮</h3>
-                <h3>🌙 저녁</h3>
+                <h3 class="fade-bottom">☀️ 아침</h3>
+                <h3 class="fade-bottom">📚 낮</h3>
+                <h3 class="fade-bottom">🌙 저녁</h3>
 
-                <h3>상추 샐러드로 든든한 아침식사</h3>
-                <h3>도서관에서 열심히 공부</h3>
-                <h3>친구들과 함께 캠퍼스 산책</h3>
+                <h3 class="fade-bottom">상추 샐러드로 든든한 아침식사</h3>
+                <h3 class="fade-bottom">도서관에서 열심히 공부</h3>
+                <h3 class="fade-bottom">친구들과 함께 캠퍼스 산책</h3>
 
-                <img src="Assets/mascot_1.png" alt="상상부기 상추">
-                <img src="Assets/mascot_grid_5.png" alt="상상부기 공부">
-                <img src="Assets/mascot_grid_6.png" alt="상상부기 산책" style="width: 13em;">
+                <img src="Assets/mascot_1.png" alt="상상부기 상추" class="fade-bottom">
+                <img src="Assets/mascot_grid_5.png" alt="상상부기 공부" class="fade-bottom">
+                <img src="Assets/mascot_grid_6.png" alt="상상부기 산책" style="width: 13em;" class="fade-bottom">
             </div>
         </section>
 
         <section id="personality" class="container">
-            <h2 id="personality-title" class="section-title reveal-up">모든 한성인의 든든한 친구</h2>
-            <p id="personality-description" class="section-description reveal-up">언제나 밝고 긍정적인 에너지로 캠퍼스 곳곳에서
+            <h2 id="personality-title" class="section-title fade">모든 한성인의 든든한 친구</h2>
+            <p id="personality-description" class="section-description fade">언제나 밝고 긍정적인 에너지로 캠퍼스 곳곳에서
                 여러분을
                 응원해요</p>
-            <div class="quote reveal-up">
+            <div class="quote fade">
                 <img src="Assets/mascot_per.png" alt="상상부기 응원">
                 <p class="text">"한성인들이 행복할 때 저도 행복해요!"</p>
             </div>
         </section>
 
         <section id="friends" class="container story">
-            <h2 id="friends-title" class="section-title reveal-up">혼자가 아니에요! 사랑스러운 친구들과 함께</h2>
-            <div class="photo-container reveal-up">
+            <h2 id="friends-title" class="section-title fade">혼자가 아니에요! 사랑스러운 친구들과 함께</h2>
+            <div class="photo-container fade-bottom">
                 <img src="https://pplx-res.cloudinary.com/image/upload/v1748850477/pplx_project_search_images/542347bf2b04a90ccda8dd09c0ba9476e5188101.jpg"
                     alt="상상부기 프렌즈" id="friends-photo" class="photo">
             </div>
             <div class="container story">
                 <h2>상찌</h2>
-                <div class="story-content-left reveal-up">
-                    <img src="Assets/mascot_8.png" alt="상상부기 알" class="story-img">
-                    <div class="story-text">
-                        <p>
-                            상상부기가 여느 때와 같이
-                        </p>
-                        <p>
-                            간식으로 상추를 먹던 중이었어요.
-                        </p>
+                <div class="story-container">
+                    <div class="scene">
+                        <div class="story-content-left">
+                            <img src="Assets/mascot_8.png" alt="상상부기 알" class="story-img fade-left">
+                            <div class="story-text fade">
+                                <p>
+                                    상상부기가 여느 때와 같이
+                                </p>
+                                <p>
+                                    간식으로 상추를 먹던 중이었어요.
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="story-content-right reveal-up">
-                    <div class="story-text">
-                        <p>
-                            상추가 너무너무 좋았던 상상부기는 아껴먹으려고 가방에 넣었어요.
-                        </p>
-                        <p>
-                            그렇게 가방 속에서 잊혀졌던 상추는...
-                        </p>
+                    <div class="scene">
+                        <div class="story-content-right">
+                            <div class="story-text fade">
+                                <p>
+                                    상추가 너무너무 좋았던 상상부기는 아껴먹으려고 가방에 넣었어요.
+                                </p>
+                                <p>
+                                    그렇게 가방 속에서 잊혀졌던 상추는...
+                                </p>
+                            </div>
+                            <img src="Assets/mascot_9.png" alt="상상부기 알" class="story-img fade-right">
+                        </div>
                     </div>
-                    <img src="Assets/mascot_9.png" alt="상상부기 알" class="story-img">
-                </div>
-                <div class="story-content-left reveal-up">
-                    <img src="Assets/mascot_10.png" alt="상상부기 알" class="story-img">
-                    <div class="story-text">
-                        <p>
-                            상상부기의 소망 덕분에 점점 커서...
-                        </p>
-                        <p>
-                            상찌가 되어 나타났어요!
-                        </p>
+                    <div class="scene">
+                        <div class="story-content-left">
+                            <img src="Assets/mascot_10.png" alt="상상부기 알" class="story-img fade-left">
+                            <div class="story-text fade">
+                                <p>
+                                    상상부기의 소망 덕분에 점점 커서...
+                                </p>
+                                <p>
+                                    상찌가 되어 나타났어요!
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="story-content-right reveal-up">
-                    <div class="story-text">
-                        <p>
-                            상상부기와 상찌는
-                        </p>
-                        <p>
-                            둘도 없는 단짝친구랍니다.
-                        </p>
+                    <div class="scene">
+                        <div class="story-content-right">
+                            <div class="story-text fade">
+                                <p>
+                                    상상부기와 상찌는
+                                </p>
+                                <p>
+                                    둘도 없는 단짝친구랍니다.
+                                </p>
+                            </div>
+                            <img src="Assets/mascot_11.png" alt="상상부기 알" class="story-img fade-right">
+                        </div>
                     </div>
-                    <img src="Assets/mascot_11.png" alt="상상부기 알" class="story-img">
-                </div>
-                <div class="story-content-left reveal-up">
-                    <img src="Assets/mascot_12.png" alt="상상부기 알" class="story-img">
-                    <div class="story-text">
-                        <p>
-                            앗 부기!
-                        </p>
-                        <p>
-                            상찌 앞에서 상추를 먹으면 안되죠!
-                        </p>
+                    <div class="scene">
+                        <div class="story-content-left ">
+                            <img src="Assets/mascot_12.png" alt="상상부기 알" class="story-img fade-left">
+                            <div class="story-text fade">
+                                <p>
+                                    앗 부기!
+                                </p>
+                                <p>
+                                    상찌 앞에서 상추를 먹으면 안되죠!
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="container story">
                 <h2>한성냥이</h2>
-                <div class="story-content-left reveal-up">
-                    <img src="Assets/mascot_13.png" alt="상상부기 알" class="story-img">
-                    <div class="story-text">
-                        <p>
-                            학교 주변을 산책하던 상상부기는
-                        </p>
-                        <p>
-                            특이한 고양이를 마주쳤어요.
-                        </p>
+                <div class="story-container">
+                    <div class="scene">
+                        <div class="story-content-left">
+                            <img src="Assets/mascot_13.png" alt="상상부기 알" class="story-img fade-left">
+                            <div class="story-text fade">
+                                <p>
+                                    학교 주변을 산책하던 상상부기는
+                                </p>
+                                <p>
+                                    특이한 고양이를 마주쳤어요.
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="story-content-right reveal-up">
-                    <div class="story-text">
-                        <p>
-                            성냥이라고 자신을 소개한 고양이는
-                        </p>
-                        <p>
-                            자초지종을 설명하더니...
-                        </p>
+                    <div class="scene">
+                        <div class="story-content-right">
+                            <div class="story-text fade">
+                                <p>
+                                    성냥이라고 자신을 소개한 고양이는
+                                </p>
+                                <p>
+                                    자초지종을 설명하더니...
+                                </p>
+                            </div>
+                            <img src="Assets/mascot_14.png" alt="상상부기 알" class="story-img fade-right">
+                        </div>
                     </div>
-                    <img src="Assets/mascot_14.png" alt="상상부기 알" class="story-img">
-                </div>
-                <div class="story-content-left reveal-up">
-                    <img src="Assets/mascot_15.png" alt="상상부기 알" class="story-img">
-                    <div class="story-text">
-                        <p>
-                            상상부기에게
-                        </p>
-                        <p>
-                            집사가 되라고 외쳤어요!
-                        </p>
+                    <div class="scene">
+                        <div class="story-content-left">
+                            <img src="Assets/mascot_15.png" alt="상상부기 알" class="story-img fade-left">
+                            <div class="story-text fade">
+                                <p>
+                                    상상부기에게
+                                </p>
+                                <p>
+                                    집사가 되라고 외쳤어요!
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="story-content-right reveal-up">
-                    <div class="story-text">
-                        <p>
-                            부기가 열심히 설득해 집사 대신 친구가 된 둘.
-                        </p>
-                        <p>
-                            여전히 한성냥이는 장난기가 넘친답니다.
-                        </p>
+                    <div class="scene">
+                        <div class="story-content-right">
+                            <div class="story-text fade">
+                                <p>
+                                    부기가 열심히 설득해 집사 대신 친구가 된 둘.
+                                </p>
+                                <p>
+                                    여전히 한성냥이는 장난기가 넘친답니다.
+                                </p>
+                            </div>
+                            <img src="Assets/mascot_16.png" alt="상상부기 알" class="story-img fade-right">
+                        </div>
                     </div>
-                    <img src="Assets/mascot_16.png" alt="상상부기 알" class="story-img">
                 </div>
             </div>
             <div class="container story">
                 <h2>꼬꼬&꾸꾸</h2>
-                <div class="story-content-left reveal-up">
-                    <img src="Assets/mascot_17.png" alt="상상부기 알" class="story-img">
-                    <div class="story-text">
-                        <p>
-                            상상부기와 상찌, 한성냥이는
-                        </p>
-                        <p>
-                            매일 꼬꼬와 꾸꾸의 아침 공연을 보러 가요.
-                        </p>
+                <div class="story-container">
+                    <div class="scene">
+                        <div class="story-content-left">
+                            <img src="Assets/mascot_17.png" alt="상상부기 알" class="story-img fade-left">
+                            <div class="story-text fade">
+                                <p>
+                                    상상부기와 상찌, 한성냥이는
+                                </p>
+                                <p>
+                                    매일 꼬꼬와 꾸꾸의 아침 공연을 보러 가요.
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="story-content-right reveal-up">
-                    <div class="story-text">
-                        <p>
-                            어느 하루, 공연이 끝나고 상상부기가 작은 용기를 내자
-                        </p>
-                        <p>
-                            꼬꼬와 꾸꾸도 흔쾌히 받아줬어요!
-                        </p>
+                    <div class="scene">
+                        <div class="story-content-right">
+                            <div class="story-text fade">
+                                <p>
+                                    어느 하루, 공연이 끝나고 상상부기가 작은 용기를 내자
+                                </p>
+                                <p>
+                                    꼬꼬와 꾸꾸도 흔쾌히 받아줬어요!
+                                </p>
+                            </div>
+                            <img src="Assets/mascot_18.png" alt="상상부기 알" class="story-img fade-right">
+                        </div>
                     </div>
-                    <img src="Assets/mascot_18.png" alt="상상부기 알" class="story-img">
                 </div>
             </div>
-            <div class="container story">
+            <div class="container story fade-bottom">
                 <h1>그렇게 결성된 상상부기 프렌즈</h1>
                 <img src="Assets/mascot_19.png" alt="상상부기 프렌즈" class="story-img" style="width: 70%;">
                 <h1>잘부탁드려요!</h1>
@@ -306,12 +342,12 @@
         </section>
 
         <section id="bye" class="container">
-            <h2 id="bye-title" class="section-title reveal-up">앞으로도 계속될 상상부기의 이야기</h2>
+            <h2 id="bye-title" class="section-title fade">앞으로도 계속될 상상부기의 이야기</h2>
             <img src="Assets/mascot_20.png" alt="상상부기">
-            <p id="bye-description" class="section-description reveal-up">더 많은 사람들에게 사랑받는 마스코트가 되어 한성대학교의
+            <p id="bye-description" class="section-description fade">더 많은 사람들에게 사랑받는 마스코트가 되어 한성대학교의
                 따뜻한 마음을
                 전해드릴게요</p>
-            <div id="vision-content" class="section-content reveal-up">
+            <div id="vision-content" class="section-content fade">
                 <div class="icon">🌟</div>
                 <p>상상부기와 함께 만들어갈 더 특별한 캠퍼스 라이프를 기대해주세요!</p>
             </div>
@@ -321,26 +357,24 @@
     <section id="univ" class="nanum">
         <section id="univ-intro" class="container">
             <div id="univ-intro-photo" class="bgpic-setting">
-                <img src="Assets/univ_logo.png" alt="한성대학교">
+                <img src="Assets/univ_logo.png" alt="한성대학교" class="fade">
             </div>
         </section>
         <section id="univ-info" class="container">
-            <h2>한성대학교는</h3>
-                <h1>진리(眞理)ㆍ지선(至善)
-            </h2>
-            <h2>교육이념을 바탕으로 창의적 전문인, 포용적 사회인, 열린 세계인을 양성합니다.</h3>
+            <h2 class="fade-bottom">한성대학교는</h2>
+            <h1 class="fade-bottom">진리(眞理)ㆍ지선(至善)</h1>
+            <h2 class="fade-bottom">교육이념을 바탕으로 창의적 전문인, 포용적 사회인, 열린 세계인을 양성합니다.</h2>
         </section>
-        <section id="univ-history" class="container">
-            <h2>1945 - 재단법인 한성학원 설립</h1>
-                <h4>1972 - 한성여자대학 설립</h1>
-                    <h4>1978 - 공학 전환</h1>
-                        <h4>1993 - 4년제 종합대학 승격</h3>
-                            <h3>2024 - 소프트웨어 중심대학 선정
-            </h2>
-            <h1>2025 - 53주년!</h1>
+        <section id="univ-history" class="container" style="background-color: white;">
+            <h2 class="fade">1945 - 재단법인 한성학원 설립</h2>
+            <h4 class="fade">1972 - 한성여자대학 설립</h4>
+            <h4 class="fade">1978 - 공학 전환</h4>
+            <h4 class="fade">1993 - 4년제 종합대학 승격</h4>
+            <h3 class="fade">2024 - 소프트웨어 중심대학 선정</h3>
+            <h1 class="fade">2025 - 53주년!</h1>
         </section>
         <section id="univ-description" class="container">
-            <div class="flex-row">
+            <div class="flex-row fade-left">
                 <div id="univ-desc-sidebar" class="flex-column bold">
                     <button data-content="univ-info-1" class="btn">창의융합 인재 양성</button>
                     <hr>
@@ -353,23 +387,62 @@
                     <button data-content="univ-info-5" class="btn">ESG</button>
                 </div>
                 <div id="univ-desc-items">
-                    <ol class="flex-column">
-                        <li>전공트랙학과 연계맞춤형 창의융합 전공교육 고도화</li>
-                        <li>사회수요 맞춤형 역량중심 교양 교육 고도화</li>
-                        <li>창의적 문제해결 중심 고효과 비교과 교육 확산</li>
-                        <li>DX 기반 신산업 인재 양성 교육 확산</li>
-                        <li>첨단 인프라 기반 HS 창의융합 교육플랫폼 고도화</li>
+                    <div id="univ-info-1" class="desc-content">
+                        <ol class="flex-column">
+                            <li>전공트랙학과 연계맞춤형 창의융합 전공교육 고도화</li>
+                            <li>사회수요 맞춤형 역량중심 교양 교육 고도화</li>
+                            <li>창의적 문제해결 중심 고효과 비교과 교육 확산</li>
+                            <li>DX 기반 신산업 인재 양성 교육 확산</li>
+                            <li>첨단 인프라 기반 HS 창의융합 교육플랫폼 고도화</li>
+                        </ol>
+                    </div>
+                    <div id="univ-info-2" class="desc-content">
+                        <ol class="flex-column">
+                            <li>학생성공 중심 맞춤형 학습지원 고도화</li>
+                            <li>성공적 대학 생활 실현을 위한 권익보호 및 심리지도 강화</li>
+                            <li>학생성공 진로 및 취·창업 지원체계 강화</li>
+                            <li>IR 기반 교육품질 및 학습성과관리 고도화</li>
+                            <li>온오프라인 복합교육체계 강화</li>
+                        </ol>
+                    </div>
+                    <div id="univ-info-3" class="desc-content">
+                        <ol class="flex-column">
+                            <li>사회수요 맞춤형 산학협력 교육 혁신</li>
+                            <li>기업협업센터 기반 산학협력 특화분야 기술 사업화 확대</li>
+                            <li>지역사회 기반 산학협력 공유-협업 플랫폼 강화</li>
+                            <li>산학연 협력 네트워크 기반 연구가치 확산</li>
+                            <li>산학협력 친화형 행재정 인프라 고도화</li>
+                        </ol>
+                    </div>
+                    <div id="univ-info-4" class="desc-content">
+                        <ol class="flex-column">
+                            <li>성인학습자 중심 평생교육 고도화</li>
+                            <li>지역주민 생애주기별 평생학습 지원 내실화</li>
+                            <li>공유화 협력 기반 지역사회 기여 확대</li>
+                            <li>지역주민·학생과 함께하는 미래가치 실현</li>
+                            <li>지역-글로벌 In&Out 플랫폼 구축</li>
+                        </ol>
+                    </div>
+                    <div id="univ-info-5" class="desc-content">
+                        <ol class="flex-column">
+                            <li>사회적 책임 기반 대학교육 거버넌스 구축</li>
+                            <li>고성과 조직을 위한 인력 운영체계 고도화</li>
+                            <li>대학 재정 및 성과관리 기반 지속가능성 확립</li>
+                            <li>구성원이 만족하는 교육·행정 서비스 고도화</li>
+                            <li>학생-교수-직원-동문 교육 네트워크 활성화</li>
+                        </ol>
+                    </div>
                 </div>
             </div>
             </div>
         </section>
         <section id="univ-bye" class="container">
             <div id="univ-bye-picture" class="bgpic-setting">
-                <h2>한성대학교에서</h2>
-                <h1>미래를 설계하세요</h1>
+                <h2 class="fade">한성대학교에서</h2>
+                <h1 class="fade">미래를 설계하세요</h1>
                 <br><br>
                 <a href="https://hansung.ac.kr" target="_blank">
-                    <img src="Assets/univ_logo.png" alt="한성대학교 홈페이지" class="photo">
+                    <img src="Assets/univ_logo.png" alt="한성대학교 홈페이지" class="photo fade">
                 </a>
             </div>
         </section>
@@ -379,7 +452,7 @@
         <a href="shop.html" target="_self">
             <div class="flex-column">
                 <div id="bye-picture" class="bgpic-setting"></div>
-                <img src="Assets/buy_text.png" alt="구매하러가기" class="photo">
+                <div class="buy-image"></div>
             </div>
         </a>
     </section>

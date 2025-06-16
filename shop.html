@@ -333,7 +333,9 @@
         }
 
         //json파일 가져오기
-        fetch('http://138.2.120.185/WebProgrammingProject/product.php') // http://138.2.120.185/WebProgrammingProject/product.php
+        fetch(api + "product.php", {
+            method: "GET"
+        }) // /WebProgrammingProject/product.php
             .then(res => res.json())
             .then(data => {
                 //상품 카드 띄우기
