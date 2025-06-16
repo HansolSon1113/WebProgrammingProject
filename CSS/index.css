@@ -315,7 +315,7 @@ body {
 
 .buy-image {
     background-image: url("../Assets/buy_text.png");
-    width: 10rem;
+    width: 30rem;
     height: 3rem;
     background-repeat: no-repeat;
     box-sizing: border-box;
@@ -324,7 +324,7 @@ body {
 
 .buy-image:hover {
     background-image: url("../Assets/buy_text_hover.png");
-    width: 12rem;
+    width: 40rem;
 }
 
 .fade,
