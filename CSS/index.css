@@ -266,6 +266,14 @@ body {
     overflow: hidden;
 }
 
+.desc-content {
+    display: none;
+}
+
+.desc-content.active {
+    display: block;
+}
+
 #univ-desc-sidebar {
     flex: 0 0 40%;
     max-width: 32%;

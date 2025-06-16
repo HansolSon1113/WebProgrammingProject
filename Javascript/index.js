@@ -35,6 +35,17 @@ document.addEventListener("DOMContentLoaded", () => {
         { threshold: 0.6 }
     );
     obs.observe(helloSection);
+
+    document.querySelectorAll('#univ-desc-sidebar .btn').forEach(btn => {
+        btn.addEventListener('click', function () {
+            document.querySelectorAll('.desc-content').forEach(div => {
+                div.classList.remove('active');
+            });
+            const targetId = this.getAttribute('data-content');
+            document.getElementById(targetId).classList.add('active');
+        });
+    });
+    document.getElementById("univ-info-1").classList.add("active");
 });
 
 const observer = new IntersectionObserver(
