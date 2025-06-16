@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
         observer.observe(element);
     });
 
-    document.body.style.overflow = '';
     const helloSection = document.getElementById('hello');
     const helloText = document.getElementById('hello-text');
 
@@ -21,13 +20,9 @@ document.addEventListener("DOMContentLoaded", () => {
         (entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    document.body.style.overflow = 'hidden';
                     setTimeout(() => {
                         helloText.textContent = '저희에 대해 소개해드릴게요!';
                     }, 2000);
-                    setTimeout(() => {
-                        document.body.style.overflow = '';
-                    }, 1000);
                     observer.unobserve(entry.target);
                 }
             })

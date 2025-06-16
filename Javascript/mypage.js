@@ -36,9 +36,9 @@ function getCredentials() {
 }
 
 function deleteCredentials() {
-	document.cookie = "id =; expires=Thu, 01 Jan 1970 00:00:01 GMT;";
-    document.cookie = "pw =; expires=Thu, 01 Jan 1970 00:00:01 GMT;";
-    location.reload(true);
+	document.cookie = "id=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/";
+    document.cookie = "pw=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/";
+    location.reload();
 }
 
 function getUserData(id, pw) {
@@ -92,8 +92,6 @@ async function writeItems(items) {
 
     const products = await getProductData();
     if (!products) return;
-
-    console.log(products);
 
     const container = document.getElementById("result-container");
     container.hidden = false;
