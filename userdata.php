@@ -1,4 +1,5 @@
 <?php
+//데이터베이스 내 배열 형태 데이터 저장 및 불러오기를 위해 생성형 AI를 활용했습니다.
 
 $id = $_POST["id"] ?? null;
 $pw = $_POST["password"] ?? null;

@@ -88,6 +88,10 @@ async function writeItems(items) {
     const container = document.getElementById("result-container");
     container.hidden = false;
     const content = document.getElementById("result");
+    if (items.length == 0)
+    {
+        content.innerHTML += "<h2>구매 기록이 없습니다.</h2>"
+    }
     items.forEach(item => {
         const product = products[item - 1];
         content.innerHTML += `
