@@ -55,9 +55,6 @@ if ($productId) {
     $stmti->execute();
 
     http_response_code(200);
-    echo json_encode([
-        'items' => $initial
-    ]);
     exit;
 }
 
