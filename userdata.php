@@ -27,6 +27,7 @@ if ($productId) {
     if ($stmtg->fetch()) {
         if ($pw !== $dbPw) {
             http_response_code(401);
+            $stmtg->close();
             exit;
         }
 
@@ -37,10 +38,13 @@ if ($productId) {
         $existing[] = $productId;
         $newJson = json_encode($existing, JSON_UNESCAPED_UNICODE);
 
+        $stmtg->close();
+
         $sqlu = "UPDATE `user` SET items = ? WHERE id = ?";
         $stmtu = $con->prepare($sqlu);
         $stmtu->bind_param('ss', $newJson, $id);
         $stmtu->execute();
+        $stmtu->close();
 
         http_response_code(200);
         exit;
@@ -53,6 +57,7 @@ if ($productId) {
     $stmti = $con->prepare($sqli);
     $stmti->bind_param('sss', $id, $pw, $initialJson);
     $stmti->execute();
+    $stmti->close();
 
     http_response_code(200);
     exit;
@@ -77,6 +82,7 @@ if($stmtf->fetch())
     exit;
 }
 
+$stmtf->close();
 http_response_code(404);
 exit;
 
