@@ -397,21 +397,23 @@
                             detailBtn.onclick = () => {
                                 window.open(`detail.html?id=${product.id}`, '_blank');
                             };
-                        });
-                        loginSub.onclick = () => {
-                            const loginId = document.getElementById('login-id').value.trim();
-                            const loginPw = document.getElementById('login-pw').value.trim();
+                            loginSub.onclick = () => {
+                                console.log(product.id);
+                                const loginId = document.getElementById('login-id').value.trim();
+                                const loginPw = document.getElementById('login-pw').value.trim();
 
-                            if (!loginId || !loginPw) {
-                                alert("학번과 비밀번호를 모두 입력해주세요!");
-                                return;
+                                if (!loginId || !loginPw) {
+                                    alert("학번과 비밀번호를 모두 입력해주세요!");
+                                    return;
+                                }
+
+                                document.cookie = `id=${encodeURIComponent(loginId)}; path=/`;
+                                document.cookie = `pw=${encodeURIComponent(loginPw)}; path=/`;
+
+                                getUserData(loginId, loginPw, product.id);
                             }
+                        });
 
-                            document.cookie = `id=${encodeURIComponent(loginId)}; path=/`;
-                            document.cookie = `pw=${encodeURIComponent(loginPw)}; path=/`;
-
-                            getUserData(loginId, loginPw, product.id);
-                        }
                     })
                 }
                 document.getElementById("cate-all").addEventListener("click", (e) => {
