@@ -315,8 +315,8 @@ body {
 
 .buy-image {
     background-image: url("../Assets/buy_text.png");
-    width: 30%;
-    height: 10%;
+    width: 10rem;
+    height: 3rem;
 }
 
 .buy-image:hover {
