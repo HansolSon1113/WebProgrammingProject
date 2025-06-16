@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     document.body.style.overflow = 'hidden';
                     setTimeout(() => {
                         helloText.textContent = '저희에 대해 소개해드릴게요!';
-                    }, 1000);
+                    }, 2000);
                     setTimeout(() => {
                         document.body.style.overflow = '';
                     }, 1000);
