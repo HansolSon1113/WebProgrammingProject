@@ -30,6 +30,7 @@ body {
     align-items: center;
     flex-direction: column;
     padding: 25em 0 25em 0;
+    overflow: hidden;
 }
 
 .flex-column {
@@ -152,7 +153,7 @@ body {
 
 .story {
     height: auto;
-    gap: 10rem;
+    gap: 15rem;
 }
 
 .story-img {
@@ -315,7 +316,7 @@ body {
 .buy-image {
     background-image: url("../Assets/buy_text.png");
     width: 30%;
-    height: auto;
+    height: 10%;
 }
 
 .buy-image:hover {
