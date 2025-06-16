@@ -358,9 +358,12 @@ body {
     transform: translateX(5em) rotate(10deg);
 }
 
-.story-content-left img.fade-left.fade-in,
-.story-content-right img.fade-right.fade-in
-{
+.story-content-left img.fade-left.fade-in {
     opacity: 1;
-    transform: translateX(0) translateY(0);
+    transform: translateX(0);
+}
+
+.story-content-right img.fade-right.fade-in {
+    opacity: 1;
+    transform: translateX(0);
 }
