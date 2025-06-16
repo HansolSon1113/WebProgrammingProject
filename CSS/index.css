@@ -321,36 +321,28 @@ body {
     background-image: url("../Assets/buy_text_hover.png");
 }
 
-.fade {
-    transition: 1s;
+.fade,
+.fade-left,
+.fade-right,
+.fade-bottom {
     opacity: 0;
-    position: relative;
+    transition: 1s;
 }
 
 .fade-left {
-    transition: 1s;
-    opacity: 0;
-    position: relative;
-    left: -20em;
+    transform: translateX(-20em);
 }
 
 .fade-right {
-    transition: 1s;
-    opacity: 0;
-    position: relative;
-    right: -20em;
+    transform: translateX(20em);
 }
 
 .fade-bottom {
-    transition: 1s;
-    opacity: 0;
-    position: relative;
-    bottom: -20em;
+    transform: translateY(20em);
 }
+
 
 .fade-in {
     opacity: 1;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    transform: translateX(0) translateY(0);
 }

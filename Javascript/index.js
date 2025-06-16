@@ -17,7 +17,12 @@ document.addEventListener("DOMContentLoaded", () => {
 const observer = new IntersectionObserver(
     (entries) => {
         entries.forEach(entry => {
-            entry.target.classList.toggle("fade-in", entry.isIntersecting);
+            if (entry.isIntersecting) {
+                entry.target.classList.add("fade-in");
+            }
+            else {
+                entry.target.classList.remove("fade-in");
+            }
         })
     },
     { threshold: 0.1 }
