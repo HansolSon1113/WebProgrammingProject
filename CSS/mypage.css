@@ -165,7 +165,8 @@
     color: navy;
 }
 
-.result-buttons button {
+.result-buttons button,
+#logout {
     cursor: pointer;
     border: none;
     color: navy;
@@ -173,7 +174,8 @@
 }
 
 .result-buttons a:hover,
-.result-buttons button:hover {
+.result-buttons button:hover,
+#logout:hover {
     color: blue;
 }
 

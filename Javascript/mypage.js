@@ -21,6 +21,8 @@ document.addEventListener("DOMContentLoaded", function () {
         event.preventDefault();
         getUserData(id, pw);
     });
+
+    document.getElementById("logout").addEventListener("click", deleteCredentials);
 });
 
 function getCredentials() {
@@ -31,6 +33,11 @@ function getCredentials() {
         id: decodeURIComponent(id[1]),
         pw: decodeURIComponent(pw[1])
     } : undefined;
+}
+
+function deleteCredentials() {
+	document.cookie = "id =; expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+    document.cookie = "pw =; expires=Thu, 01 Jan 1970 00:00:01 GMT;";
 }
 
 function getUserData(id, pw) {
