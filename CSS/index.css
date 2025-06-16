@@ -152,7 +152,12 @@ body {
 }
 
 .story {
+    height: 100%;
     gap: 15em;
+}
+
+.story::-webkit-scrollbar {
+    display: none;
 }
 
 .story-container {
