@@ -153,11 +153,6 @@ body {
 
 .story {
     height: 100%;
-    gap: 15em;
-}
-
-.story::-webkit-scrollbar {
-    display: none;
 }
 
 .story-container {
@@ -184,7 +179,7 @@ body {
     flex-direction: row;
     gap: 20%;
     position: sticky;
-    top: 50%;
+    top: 30%;
 }
 
 .story-content-left {
