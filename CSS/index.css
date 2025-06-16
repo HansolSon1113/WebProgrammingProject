@@ -30,7 +30,6 @@ body {
     align-items: center;
     flex-direction: column;
     padding: 25em 0 25em 0;
-    overflow: hidden;
 }
 
 .flex-column {
@@ -159,6 +158,12 @@ body {
     height: 100vh;
     overflow-y: auto;
     scroll-snap-type: y mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.story-container::-webkit-scrollbar {
+    display: none;
 }
 
 .friends h2 {
