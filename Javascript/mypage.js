@@ -22,7 +22,12 @@ document.addEventListener("DOMContentLoaded", function () {
         getUserData(id, pw);
     });
 
-    document.getElementById("logout").addEventListener("click", deleteCredentials);
+    document.getElementById("logout").addEventListener("click", () => {
+        console.log("DE");
+        document.cookie = "id=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/";
+        document.cookie = "pw=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/";
+        location.reload();
+    });
 });
 
 function getCredentials() {
@@ -33,13 +38,6 @@ function getCredentials() {
         id: decodeURIComponent(id[1]),
         pw: decodeURIComponent(pw[1])
     } : undefined;
-}
-
-function deleteCredentials() {
-    console.log("DE");
-	document.cookie = "id=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/";
-    document.cookie = "pw=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/";
-    location.reload();
 }
 
 function getUserData(id, pw) {
