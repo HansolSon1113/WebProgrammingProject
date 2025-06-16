@@ -22,7 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     document.body.style.overflow = 'hidden';
-                    helloText.textContent = '저희에 대해 소개해드릴게요!';
+                    setTimeout(() => {
+                        helloText.textContent = '저희에 대해 소개해드릴게요!';
+                    }, 1000);
                     setTimeout(() => {
                         document.body.style.overflow = '';
                     }, 1000);
@@ -30,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             })
         },
-        { threshold: 0.6 }
+        { threshold: 0.7 }
     );
     obs.observe(helloSection);
 });
