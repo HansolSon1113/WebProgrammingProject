@@ -225,9 +225,7 @@
                         })
                         .then((response) => {
                             if (response.ok) {
-                                response.json().then(data => {
-                                    window.location.href = 'mypage.html';
-                                });
+                                window.location.href = 'mypage.html';
                             }
                             else if (response.status == 401) {
                                 alert("비밀번호를 확인해주세요.");
