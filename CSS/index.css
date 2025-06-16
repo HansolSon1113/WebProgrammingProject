@@ -361,6 +361,6 @@ body {
 .story-content-left img.fade-left.fade-in,
 .story-content-right img.fade-right.fade-in
 {
-opacity: 1;
-transform: translate(0, 0);
+    opacity: 1;
+    transform: translate(0, 0);
 }
