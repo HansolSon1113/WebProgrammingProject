@@ -360,10 +360,10 @@ body {
 
 .story-content-left img.fade-left.fade-in {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateX(0) rotate(-10deg);
 }
 
 .story-content-right img.fade-right.fade-in {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateX(0) rotate(10deg);
 }
