@@ -1,6 +1,4 @@
 <?php
-//데이터베이스 내 배열 형태 데이터 저장 및 불러오기를 위해 생성형 AI를 활용했습니다.
-
 $id = $_POST["id"] ?? null;
 $pw = $_POST["password"] ?? null;
 $productId = $_POST["product_id"] ?? null;
@@ -26,8 +24,9 @@ if ($productId) {
 
     if ($stmtg->fetch()) {
         if ($pw !== $dbPw) {
-            http_response_code(401);
             $stmtg->close();
+            $con->close();
+            http_response_code(401);
             exit;
         }
 
@@ -46,9 +45,11 @@ if ($productId) {
         $stmtu->execute();
         $stmtu->close();
 
+        $con->close();
         http_response_code(200);
         exit;
     }
+    $stmtg->close();
 
     $initial = [$productId];
     $initialJson = json_encode($initial, JSON_UNESCAPED_UNICODE);
@@ -59,6 +60,7 @@ if ($productId) {
     $stmti->execute();
     $stmti->close();
 
+    $con->close();
     http_response_code(200);
     exit;
 }
@@ -73,28 +75,20 @@ if($stmtf->fetch())
 {
     if($pw != $dbPw)
     {
+        $stmtf->close();
+        $con->close();
         http_response_code(401);
         exit;
     }
 
+    $stmtf->close();
+    $con->close();
     http_response_code(200);
     echo $dbItems;
     exit;
 }
-
 $stmtf->close();
+$con->close();
 http_response_code(404);
 exit;
-
-register_shutdown_function(function() use (&$stmtg, &$stmtu, &$stmti, &$stmtf, $con) {
-    foreach (['stmtg','stmtu','stmti','stmtf'] as $name) {
-        if (isset($$name) && $$name instanceof mysqli_stmt) {
-            $$name->close();
-        }
-    }
-    if ($con instanceof mysqli) {
-        $con->close();
-    }
-});
-
 ?>
