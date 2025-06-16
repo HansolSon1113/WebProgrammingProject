@@ -21,13 +21,6 @@ document.addEventListener("DOMContentLoaded", function () {
         event.preventDefault();
         getUserData(id, pw);
     });
-
-    document.getElementById("logout").addEventListener("click", () => {
-        console.log("DE");
-        document.cookie = "id=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/";
-        document.cookie = "pw=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/";
-        location.reload();
-    });
 });
 
 function getCredentials() {
@@ -109,5 +102,11 @@ async function writeItems(items) {
                 <button id="refund">구매 취소</button>
             </div>
         </div>`;
+
+        document.getElementById("logout").addEventListener("click", () => {
+            document.cookie = "id=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/";
+            document.cookie = "pw=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/";
+            location.reload();
+        });
     });
 }
