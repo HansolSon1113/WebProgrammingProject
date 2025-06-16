@@ -406,12 +406,11 @@
                                 alert("학번과 비밀번호를 모두 입력해주세요!");
                                 return;
                             }
-
-                            document.cookie = `id=${loginId}; path=/`;
-                            document.cookie = `pw=${loginPw}; path=/`;
+                            
+                            document.cookie = `id=${encodeURIComponent(loginId)}; path=/`;
+                            document.cookie = `pw=${encodeURIComponent(loginPw)}; path=/`;
 
                             getUserData(loginId, loginPw, product.id);
-
                         }
                     })
                 }
