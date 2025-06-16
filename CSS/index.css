@@ -311,6 +311,46 @@ body {
     width: 100%;
 }
 
-#bye img {
+.buy-image {
+    background-image: url("../Assets/buy_text.png");
     width: 30%;
+    height: auto;
+}
+
+.buy-image:hover {
+    background-image: url("../Assets/buy_text_hover.png");
+}
+
+.fade {
+    transition: 1s;
+    opacity: 0;
+    position: relative;
+}
+
+.fade-left {
+    transition: 1s;
+    opacity: 0;
+    position: relative;
+    left: -20em;
+}
+
+.fade-right {
+    transition: 1s;
+    opacity: 0;
+    position: relative;
+    right: -20em;
+}
+
+.fade-bottom {
+    transition: 1s;
+    opacity: 0;
+    position: relative;
+    bottom: -20em;
+}
+
+.fade-in {
+    opacity: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }

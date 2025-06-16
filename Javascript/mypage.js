@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-//참고: https://ko.javascript.info/cookie
 function getCredentials() {
     const id = document.cookie.match(/(?<=^|;\s*)id=([^;]*)/); // id 값만 정확히 추출
     const pw = document.cookie.match(/(?<=^|;\s*)pw=([^;]*)/);
