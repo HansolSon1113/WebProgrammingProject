@@ -329,6 +329,10 @@ body {
     transition: 1s;
 }
 
+.fade {
+    transform: translate(0, 0);
+}
+
 .fade-left {
     transform: translateX(-20em);
 }
@@ -344,5 +348,5 @@ body {
 
 .fade-in {
     opacity: 1;
-    transform: translateX(0) translateY(0);
+    transform: translate(0, 0);
 }
