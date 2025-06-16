@@ -351,11 +351,11 @@ body {
 }
 
 .story-content-left img.fade-left {
-    transform: translateX(-5em) rotate(-10deg);
+    transform: translateX(-5em) rotate(0deg);
 }
 
 .story-content-right img.fade-right {
-    transform: translateX(5em) rotate(10deg);
+    transform: translateX(5em) rotate(0deg);
 }
 
 .story-content-left img.fade-left.fade-in {
