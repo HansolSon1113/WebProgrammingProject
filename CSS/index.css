@@ -22,6 +22,14 @@ body {
     word-break: keep-all;
 }
 
+html,
+body {
+    height: 100%;
+    margin: 0;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+}
+
 .container {
     display: flex;
     height: 100vh;
@@ -152,9 +160,7 @@ body {
 }
 
 .story {
-    height: 100vh;
-    overflow-y: auto;
-    scroll-snap-type: y mandatory;
+    gap: 15em;
 }
 
 .scene {
