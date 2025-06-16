@@ -345,6 +345,11 @@ body {
     transform: translateY(5em);
 }
 
+.fade-in {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
 .story-content-left img.fade-left {
     transform: translateX(-5em) rotate(-10deg);
 }
@@ -353,7 +358,9 @@ body {
     transform: translateX(5em) rotate(10deg);
 }
 
-.fade-in {
-    opacity: 1;
-    transform: translate(0, 0);
+.story-content-left img.fade-left.fade-in,
+.story-content-right img.fade-right.fade-in
+{
+opacity: 1;
+transform: translate(0, 0);
 }
