@@ -319,6 +319,7 @@ body {
     height: 3rem;
     background-repeat: no-repeat;
     box-sizing: border-box;
+    background-size: cover;
 }
 
 .buy-image:hover {
