@@ -165,6 +165,7 @@ body {
     display: flex;
     flex-direction: row;
     gap: 20%;
+    height: 100vh;
 }
 
 .story-content-left {
