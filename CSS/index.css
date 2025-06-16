@@ -157,7 +157,7 @@ body {
 
 .story-container {
     height: 100vh;
-    overflow-y: visible;
+    overflow-y: auto;
     scroll-snap-type: y mandatory;
 }
 
