@@ -324,7 +324,7 @@ body {
 
 .buy-image:hover {
     background-image: url("../Assets/buy_text_hover.png");
-    width: 40rem;
+    width: 35rem;
 }
 
 .fade,
