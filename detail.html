@@ -226,7 +226,6 @@
                         .then((response) => {
                             if (response.ok) {
                                 response.json().then(data => {
-                                    writeItems(data);
                                     window.location.href = 'mypage.html';
                                 });
                             }
