@@ -152,8 +152,15 @@ body {
 }
 
 .story {
-    height: auto;
-    gap: 15rem;
+    height: 100vh;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+}
+
+.scene {
+    position: relative;
+    height: 100vh;
+    scroll-snap-align: start;
 }
 
 .story-img {
@@ -167,6 +174,8 @@ body {
     display: flex;
     flex-direction: row;
     gap: 20%;
+    position: sticky;
+    top: 50%;
 }
 
 .story-content-left {
