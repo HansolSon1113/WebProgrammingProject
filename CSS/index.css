@@ -152,7 +152,7 @@ body {
 
 .story {
     height: auto;
-    gap: 100%;
+    gap: 10rem;
 }
 
 .story-img {
