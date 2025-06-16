@@ -152,6 +152,7 @@ body {
 
 .story {
     height: auto;
+    gap: 50%;
 }
 
 .story-img {
@@ -165,7 +166,6 @@ body {
     display: flex;
     flex-direction: row;
     gap: 20%;
-    height: 100vh;
 }
 
 .story-content-left {
