@@ -166,7 +166,9 @@
         const urlParams = new URLSearchParams(window.location.search);
         const productId = urlParams.get('id');
 
-        fetch('http://138.2.120.185/WebProgrammingProject/product.php') // /WebProgrammingProject/product.php
+        fetch(api + "product.php", {
+            method: "GET"
+        })  // /WebProgrammingProject/product.php
             .then(res => res.json())
             .then(data => {
                 const product = data.find(p => p.id == productId);
