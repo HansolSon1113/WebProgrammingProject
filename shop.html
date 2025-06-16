@@ -292,9 +292,9 @@
             <div class="login-modal-content">
                 <span class="close-button">&times;</span>
                 <h3>로그인</h3>
-                <input id="login-id" type="text" placeholder="학번" style="width: 100%; margin-bottom: 10px;">
+                <input id="login-id" type="text" placeholder="아이디" style="width: 100%; margin-bottom: 10px;">
                 <input id="login-pw" type="password" placeholder="비밀번호" style="width: 100%; margin-bottom: 10px;">
-                <button id="login-submit" style="width: 100%; padding: 8px;">확인</button>
+                <button id="login-submit" style="width: 100%; padding: 8px;">로그인</button>
             </div>
         </div>
     </div>
@@ -333,7 +333,7 @@
         }
 
         //json파일 가져오기
-        fetch('test.json') // /WebProgrammingProject/product.php
+        fetch('http://138.2.120.185/WebProgrammingProject/product.php') // http://138.2.120.185/WebProgrammingProject/product.php
             .then(res => res.json())
             .then(data => {
                 //상품 카드 띄우기
@@ -408,8 +408,8 @@
                             document.cookie = `id=${loginId}`;
                             document.cookie = `pw=${loginPw}`;
 
-                            window.location.href = 'mypage.html';
                             getUserData(loginId, loginPw, product.id);
+
                         }
                     })
                 }
@@ -433,7 +433,6 @@
                 renderProducts(data);
 
                 function getUserData(id, pw, productId) {
-                    const remember = document.getElementById("remember").checked;
                     fetch(api + "userdata.php",
                         {
                             method: "POST",
@@ -446,11 +445,7 @@
                             if (response.ok) {
                                 response.json().then(data => {
                                     writeItems(data);
-                                    if (remember) {
-                                        localStorage.setItem("rememberedUsername", id);
-                                        document.cookie = `id=${encodeURIComponent(id)}; path=/`;
-                                        document.cookie = `pw=${encodeURIComponent(pw)}; path=/`
-                                    }
+                                    window.location.href = 'mypage.html';
                                 });
                             }
                             else if (response.status == 401) {

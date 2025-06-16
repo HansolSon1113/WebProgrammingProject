@@ -166,7 +166,7 @@
         const urlParams = new URLSearchParams(window.location.search);
         const productId = urlParams.get('id');
 
-        fetch('test.json') // /WebProgrammingProject/product.php
+        fetch('http://138.2.120.185/WebProgrammingProject/product.php') // /WebProgrammingProject/product.php
             .then(res => res.json())
             .then(data => {
                 const product = data.find(p => p.id == productId);
@@ -209,12 +209,10 @@
                     document.cookie = `id=${loginId}`;
                     document.cookie = `pw=${loginPw}`;
 
-                    window.location.href = 'mypage.html';
-                    getUserData(loginId, loginPw, productId);
+                    getUserData(loginId, loginPw, product.id);
                 })
 
                 function getUserData(id, pw, productId) {
-                    const remember = document.getElementById("remember").checked;
                     fetch(api + "userdata.php",
                         {
                             method: "POST",
@@ -227,11 +225,7 @@
                             if (response.ok) {
                                 response.json().then(data => {
                                     writeItems(data);
-                                    if (remember) {
-                                        localStorage.setItem("rememberedUsername", id);
-                                        document.cookie = `id=${encodeURIComponent(id)}; path=/`;
-                                        document.cookie = `pw=${encodeURIComponent(pw)}; path=/`
-                                    }
+                                    window.location.href = 'mypage.html';
                                 });
                             }
                             else if (response.status == 401) {
