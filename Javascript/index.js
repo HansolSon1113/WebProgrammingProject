@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             })
         },
-        { threshold: 0.7 }
+        { threshold: 0.6 }
     );
     obs.observe(helloSection);
 });
