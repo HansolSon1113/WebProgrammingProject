@@ -460,8 +460,8 @@
             .catch(err => console.error('실패', err));
 
         function filterProducts(products, category) {
-            if (category === -1) return products;
-            return products.filter(p => p.category === category);
+            if (category == -1) return products;
+            return products.filter(p => p.category == category);
         }
 
 
