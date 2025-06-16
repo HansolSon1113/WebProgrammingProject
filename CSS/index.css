@@ -151,16 +151,17 @@ body {
     height: auto;
 }
 
-.story.container {
-    padding: 0;
+.story {
+    height: 100%;
 }
 
 .story-container {
     height: 100vh;
+    overflow-y: visible;
     scroll-snap-type: y mandatory;
 }
 
-.story h2 {
+.friends h2 {
     margin: 0;
 }
 
