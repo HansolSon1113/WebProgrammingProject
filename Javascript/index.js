@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             })
         },
-        { threshold: 1 }
+        { threshold: 0.8 }
     );
     obs.observe(helloSection);
 });
