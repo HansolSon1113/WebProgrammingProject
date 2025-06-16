@@ -334,17 +334,24 @@ body {
 }
 
 .fade-left {
-    transform: translateX(-20em);
+    transform: translateX(-5em);
 }
 
 .fade-right {
-    transform: translateX(20em);
+    transform: translateX(5em);
 }
 
 .fade-bottom {
-    transform: translateY(20em);
+    transform: translateY(5em);
 }
 
+.story-content-left img.fade-left {
+    transform: translateX(-5em) rotate(-10deg);
+}
+
+.story-content-right img.fade-right {
+    transform: translateX(5em) rotate(10deg);
+}
 
 .fade-in {
     opacity: 1;
