@@ -99,7 +99,6 @@ async function writeItems(items) {
             <div><p>배송/수령</p><p>대기중</p></div>
             <div class="result-buttons">
                 <a href="detail.html?id=${item}" target="_blank">상세보기</a>
-                <button id="refund">구매 취소</button>
             </div>
         </div>`;
 
