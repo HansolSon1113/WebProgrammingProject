@@ -38,6 +38,7 @@ function getCredentials() {
 function deleteCredentials() {
 	document.cookie = "id =; expires=Thu, 01 Jan 1970 00:00:01 GMT;";
     document.cookie = "pw =; expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+    location.reload(true);
 }
 
 function getUserData(id, pw) {
