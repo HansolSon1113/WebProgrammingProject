@@ -1,5 +1,5 @@
 const fades = {
-    In: "fade-in",
+    In: "fade",
     Left: "fade-left",
     Right: "fade-right",
     Bottom: "fade-bottom"
